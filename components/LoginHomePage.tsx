@@ -10,32 +10,14 @@ import hotAirBalloonImg from "@/assets/img/airways/hotairBalloon.jpg";
 import airplaneDining from "@/assets/img/airways/airplaneDining.jpg";
 
 interface LoginHomePageProps {
-  variant: 'bank' | 'airlines' | 'market';
+  variant: "airlines";
   name: string;
 }
 
 export default function LoginHomePage({ variant, name, ...props }: LoginHomePageProps) {
+  const { isLoggedIn, setIsLoggedIn, loginUser, logoutUser, user } = useContext(LoginContext);
 
-  const { isLoggedIn, setIsLoggedIn, loginUser, logoutUser, user } =
-    useContext(LoginContext);
-
-
-  const industryMessages = {
-    "bank": "Serving more than 100,000 customers, and 10 trillion in capital every day",
-    "airlines": "Launch into the skies. In the air in milliseconds, reach your destination without risk, and ship your travel dreams faster than ever before",
-    "market": "Shop for the latest tech gadgets and more."
-  };
-
-
-  const bankingServicesArr = [
-    { imgSrc: "Checking.png", title: "Checking" },
-    { imgSrc: "Business.png", title: "Business" },
-    { imgSrc: "Credit.png", title: "Credit Card" },
-    { imgSrc: "Savings.png", title: "Savings" },
-    { imgSrc: "Mortgage.png", title: "Mortgages" },
-  ];
-
-  const message = industryMessages[variant];
+  const message = "Launch into the skies. In the air in milliseconds, reach your destination without risk, and ship your travel dreams faster than ever before.";
 
   return (
     <motion.main
@@ -48,16 +30,7 @@ export default function LoginHomePage({ variant, name, ...props }: LoginHomePage
         <NavBar variant={variant} />
       </div>
 
-      <header className={`w-full ${variant === 'bank' ? 'bg-bankblue' :
-        variant === 'airlines' ? 'bg-gradient-airways' :
-          variant === 'market' ? ' bg-market-header grid items-center justify-center' : ''
-        } mb-[4rem]`}>
-        {variant === 'market' && (
-          <div>
-            <img src="elipse.png" alt="Market" className="absolute right-0 top-0" />
-            <img src="union.png" className="absolute left-0 bottom-0" />
-          </div>
-        )}
+      <header className={`w-full bg-gradient-airways mb-[4rem]`}>
         <div
           className="w-full py-14 sm:py-[8rem] px-12 xl:px-32 2xl:px-[300px] 3xl:px-[400px] flex flex-col sm:flex-row justify-between
              items-center sm:items-start"
@@ -66,7 +39,6 @@ export default function LoginHomePage({ variant, name, ...props }: LoginHomePage
             className="grid grid-cols-2 sm:flex flex-row sm:flex-col 
               text-white w-full sm:w-1/2 justify-start mb-4 pr-10 sm:mb-0 gap-y-10"
           >
-            {/* <img src="ToggleBankHeader.png" width={52} className="pb-0" /> */}
             <p className="text-2xl lg:text-6xl xl:text-[80px] 3xl:text-[112px] font-audimat col-span-2 sm:col-span-0 w-full">
               Welcome to {name}{" "}
             </p>
@@ -87,35 +59,26 @@ export default function LoginHomePage({ variant, name, ...props }: LoginHomePage
         </div>
       </header>
 
-     
-     
-
-      {variant === 'airlines' && (
-        <section
-          className="flex flex-col gap-y-8 sm:gap-y-8 sm:flex-row sm:gap-x-6 lg:gap-x-14
+      <section
+        className="flex flex-col gap-y-8 sm:gap-y-8 sm:flex-row sm:gap-x-6 lg:gap-x-14
            mx-auto py-12 justify-center px-4 lg:px-8"
-        >
-
-          <AirlineInfoCard
-            headerTitleText="Wheels up"
-            subtitleText="You deserve to arrive refreshed, stretch out in one of our luxurious cabins."
-            imgSrc={airplaneImg}
-          />
-          <AirlineInfoCard
-            headerTitleText="Ready for an adventure"
-            subtitleText="The world is open for travel. Plan your next adventure."
-            imgSrc={hotAirBalloonImg}
-          />
-          <AirlineInfoCard
-            headerTitleText="Experience luxury"
-            subtitleText="Choose Launch Platinum. Select on longer flights."
-            imgSrc={airplaneDining}
-          />
-
-        </section>
-      )}
-
-  
+      >
+        <AirlineInfoCard
+          headerTitleText="Wheels up"
+          subtitleText="You deserve to arrive refreshed, stretch out in one of our luxurious cabins."
+          imgSrc={airplaneImg}
+        />
+        <AirlineInfoCard
+          headerTitleText="Ready for an adventure"
+          subtitleText="The world is open for travel. Plan your next adventure."
+          imgSrc={hotAirBalloonImg}
+        />
+        <AirlineInfoCard
+          headerTitleText="Experience luxury"
+          subtitleText="Choose Launch Platinum. Select on longer flights."
+          imgSrc={airplaneDining}
+        />
+      </section>
     </motion.main>
-  )
+  );
 }
