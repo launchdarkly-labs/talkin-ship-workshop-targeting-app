@@ -18,7 +18,7 @@ import {
     CommandShortcut,
 } from "@/components/ui/command"
 import { toast } from "./ui/use-toast";
-import ExperimentGenerator from "@/components/ui/marketcomponents/experimentgenerator";
+
 
 export function QuickCommandDialog({ children }) {
     const [open, setOpen] = React.useState(false)
@@ -79,7 +79,7 @@ export function QuickCommandDialog({ children }) {
                         </CommandItem>
                         <CommandItem>
                             <FlaskConical className="mr-2 h-4 w-4" />
-                            <ExperimentGenerator />
+                          
                         </CommandItem>
                     </CommandGroup>
                 </CommandList>

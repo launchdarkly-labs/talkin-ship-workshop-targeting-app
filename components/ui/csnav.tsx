@@ -57,39 +57,9 @@ export function CSNav() {
         </SheetHeader>
         <div className="grid gap-4 py-4">
           <div className="grid items-center gap-4">
-            <div>
-              <Button onClick={goHome} variant={"secondary"} className="w-full rounded-2xl">
-                Go Home
-              </Button>
-            </div>
-            <motion.div
-              initial={{ x: -100, opacity: 0 }}
-              whileHover={{ scale: 1.05 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-            >
-              <div onClick={goRelease}>
-                <CSCard
-                  className="bg-gradient-releases cursor-pointer"
-                  herotext="Navigate to Release Confidently and Consistently"
-                  
-                />
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ x: -100, opacity: 0 }}
-              whileHover={{ scale: 1.05 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-            >
-              <div onClick={goRelease}>
-                <CSCard
-                  className="bg-gradient-mobile cursor-pointer"
-                  herotext="Navigate to Automatically Remediate"
-                />
-              </div>
-              
-            </motion.div>
+          
+         
+         
             <motion.div
               initial={{ x: -100, opacity: 0 }}
               whileHover={{ scale: 1.05 }}
@@ -104,19 +74,7 @@ export function CSNav() {
               </div>
               
             </motion.div>
-            <motion.div
-              initial={{ x: -100, opacity: 0 }}
-              whileHover={{ scale: 1.05 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-            >
-              <div onClick={goExp}>
-                <CSCard
-                  className="bg-gradient-experimentation cursor-pointer"
-                  herotext="Navigate to Product Experimentation"
-                />
-              </div>
-            </motion.div>
+        
             <div>
               <Button onClick={goCode} variant={"secondary"} className="w-full rounded-xl">
                 Code Examples
