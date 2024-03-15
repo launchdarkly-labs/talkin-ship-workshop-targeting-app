@@ -57,11 +57,7 @@ export function CSNav() {
         </SheetHeader>
         <div className="grid gap-4 py-4">
           <div className="grid items-center gap-4">
-            <div>
-              <Button onClick={goHome} variant={"secondary"} className="w-full rounded-2xl">
-                Go Home
-              </Button>
-            </div>
+          
          
          
             <motion.div
