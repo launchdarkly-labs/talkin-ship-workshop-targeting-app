@@ -514,9 +514,6 @@ const NavBar = React.forwardRef<any, NavBarProps>(
 
     return (
       <nav className="sticky w-full flex top-0 bg-black z-40 font-audimat transition-all duration-150 h-full sm:h-20 p-4 sm:p-6">
-        <div className="items-center flex gap-x-6 text-white">
-          <CSNav />
-        </div>
         <div className="ml-2 sm:ml-8 flex items-center">{navLogo}</div>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
