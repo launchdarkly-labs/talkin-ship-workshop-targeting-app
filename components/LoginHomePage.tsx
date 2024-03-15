@@ -87,24 +87,7 @@ export default function LoginHomePage({ variant, name, ...props }: LoginHomePage
         </div>
       </header>
 
-      {variant === 'bank' && (
-        <section
-          className="w-3/4 grid grid-cols-2 sm:flex sm:flex-row font-sohnelight text-center justify-center mx-auto gap-y-8 
-            sm:gap-y-0 gap-x-8
-          sm:gap-x-12 lg:gap-x-24"
-        >
-
-          {bankingServicesArr.map((ele,i) => {
-            return (
-              <div className="grid items-center justify-items-center" key={i}>
-                <img src={ele?.imgSrc} width={96} className="pb-2" />
-                {/* <Banknote size={96} strokeWidth={1} className="pb-2" /> */}
-                <p className="text-xl lg:text-2xl ">{ele?.title} </p>
-              </div>
-            );
-          })}
-        </section>
-      )}
+     
      
 
       {variant === 'airlines' && (
