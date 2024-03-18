@@ -20,6 +20,21 @@ import QRCodeImage from "./QRCodeImage";
 import { PersonaContext } from "../personacontext";
 import { QuickLoginDialog } from "../quicklogindialog";
 
+interface NavBarProps {
+  cart: InventoryItem[];
+  personas: Persona[];
+  setCart: React.Dispatch<React.SetStateAction<InventoryItem[]>>;
+  variant: string;
+}
+
+interface Persona {
+  id: string | number;
+  personaname: string;
+  personatype: string;
+  personaimage: string;
+  personaemail: string;
+}
+
 
 const NavBar = React.forwardRef<any, NavBarProps>(
   ({ launchClubLoyalty, className, handleLogout, ...props }, ref) => {
