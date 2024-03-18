@@ -27,7 +27,7 @@ export default function LoginHomePage({ variant, name, ...props }: LoginHomePage
       transition={{ duration: 0.5 }}
     >
       <div className="flex h-20 shadow-2xl bg-ldgrey ">
-        <NavBar variant={variant} />
+        <NavBar />
       </div>
 
       <header className={`w-full bg-gradient-airways mb-[4rem]`}>
