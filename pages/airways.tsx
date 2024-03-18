@@ -107,14 +107,14 @@ export default function Airways() {
       <Toaster />
       <AnimatePresence mode="wait">
         {!isLoggedIn ? (
-          <LoginHomePage variant="airlines" name="Launch Airways" />) : (
+          <LoginHomePage name="Launch Airways" />) : (
           <motion.main
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             className={`flex h-screen text-white flex-col font-audimat`}
           >
-            <NavBar launchClubLoyalty={launchClubLoyalty} variant={"airlines"} handleLogout={handleLogout} />
+            <NavBar launchClubLoyalty={launchClubLoyalty} handleLogout={handleLogout} />
 
             <header className={`py-20 bg-gradient-airways`}>
               <div className="lg:mx-auto max-w-7xl px-2">
