@@ -10,12 +10,11 @@ import hotAirBalloonImg from "@/assets/img/airways/hotairBalloon.jpg";
 import airplaneDining from "@/assets/img/airways/airplaneDining.jpg";
 
 interface LoginHomePageProps {
-  variant: "airlines";
   name: string;
 }
 
-export default function LoginHomePage({ variant, name, ...props }: LoginHomePageProps) {
-  const { isLoggedIn, setIsLoggedIn, loginUser, logoutUser, user } = useContext(LoginContext);
+export default function LoginHomePage({name }: LoginHomePageProps) {
+  const { isLoggedIn, setIsLoggedIn, loginUser } = useContext(LoginContext);
 
   const message = "Launch into the skies. In the air in milliseconds, reach your destination without risk, and ship your travel dreams faster than ever before.";
 
@@ -52,7 +51,6 @@ export default function LoginHomePage({ variant, name, ...props }: LoginHomePage
               isLoggedIn={isLoggedIn}
               setIsLoggedIn={setIsLoggedIn}
               loginUser={loginUser}
-              variant={variant}
               name={name}
             />
           </div>
