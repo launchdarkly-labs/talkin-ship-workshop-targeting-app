@@ -20,12 +20,9 @@ import QRCodeImage from "./QRCodeImage";
 import { PersonaContext } from "../personacontext";
 import { QuickLoginDialog } from "../quicklogindialog";
 
-interface NavBarProps {
-  variant: string;
-}
 
 const NavBar = React.forwardRef<any, NavBarProps>(
-  ({ launchClubLoyalty, className, variant, handleLogout, ...props }, ref) => {
+  ({ launchClubLoyalty, className, handleLogout, ...props }, ref) => {
     const { isLoggedIn, enrolledInLaunchClub, user } = useContext(LoginContext);
     let navChild, navLogo, navLinkMobileDropdown, navLinksGroup;
     const navLinkStyling =
@@ -87,7 +84,7 @@ const NavBar = React.forwardRef<any, NavBarProps>(
                     >
                       Logout
                     </Button>
-                    <QuickLoginDialog personas={personas} variant={variant} />
+                    <QuickLoginDialog personas={personas} />
                   </div>
                 </>
               </PopoverContent>
