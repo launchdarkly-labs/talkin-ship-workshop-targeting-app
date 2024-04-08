@@ -152,10 +152,10 @@ export function LoginComponent({ isLoggedIn, setIsLoggedIn, loginUser, name }: L
                   <img src="loading-spinner.gif"></img>
                 </div>
               ) : (
-                <div className="overflow-y-auto h-64">
+                <div className="overflow-y-auto">
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 justify-items-center mb-4 pt-6">
                     {personas.map((item: Persona) => (
-                      <div className="flex flex-col items-center" key={item.id}>
+                      <div className="flex flex-col items-center cursor-pointer hover:brightness-[120%]" key={item.id}>
                         <img
                           src={item.personaimage}
                           className={`w-24 rounded-full mb-4 ${activeElement === item.personaname ? 'border-4 border-black' : ''}`}
