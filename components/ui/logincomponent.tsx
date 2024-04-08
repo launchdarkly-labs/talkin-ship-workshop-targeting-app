@@ -39,24 +39,24 @@ export function LoginComponent({ isLoggedIn, setIsLoggedIn, loginUser, name }: L
     getPersonas();
   }, [isLoading]);
 
-  const handleSubmitNewPersona = () => {
-    const emailExists = personas.some(persona => persona.personaEmail === newPersona.email);
-    if (emailExists) {
-      setSubmitError('A persona with this email already exists.');
-      return;
-    }
-    setIsLoading(true);
-    addPersona(newPersona)
-      .then(() => {
-        setIsAddUserDropdownOpen(false);
-        setIsLoading(false);
-        getPersonas();
-      })
-      .catch(error => {
-        setSubmitError('Failed to create new persona. Please try again.');
-        setIsLoading(false);
-      })
-  };
+  // const handleSubmitNewPersona = () => {
+  //   const emailExists = personas.some(persona => persona.personaEmail === newPersona.email);
+  //   if (emailExists) {
+  //     setSubmitError('A persona with this email already exists.');
+  //     return;
+  //   }
+  //   setIsLoading(true);
+  //   addPersona(newPersona)
+  //     .then(() => {
+  //       setIsAddUserDropdownOpen(false);
+  //       setIsLoading(false);
+  //       getPersonas();
+  //     })
+  //     .catch(error => {
+  //       setSubmitError('Failed to create new persona. Please try again.');
+  //       setIsLoading(false);
+  //     })
+  // };
 
   const showBackButton = () => {
     setIsAddUserDropdownOpen(false);
@@ -171,7 +171,7 @@ export function LoginComponent({ isLoggedIn, setIsLoggedIn, loginUser, name }: L
                       </div>
                     ))}
 
-                    {isAddUserDropdownOpen && (
+                    {/* {isAddUserDropdownOpen && (
                       <div className="absolute z-100 left-0 top-0 bottom-0 pt-8 w-full bg-white shadow-lg">
                         <Button onClick={showBackButton} className={`absolute top-3 text-xs  mx-auto font-audimat left-4 h-5 rounded-full  bg-gradient-to-r from-airlinepurple to-airlinepink text-white`}>
                           &larr;
@@ -223,7 +223,7 @@ export function LoginComponent({ isLoggedIn, setIsLoggedIn, loginUser, name }: L
                               ))}
                             </div>
                           </div>
-                          <Button onClick={handleSubmitNewPersona} className={`mb-2 w-full h-full mx-auto font-audimat mt-2 rounded-none text-xl bg-gradient-to-r from-airlinepurple to-airlinepink text-white`}>
+                          <Button onClick={} className={`mb-2 w-full h-full mx-auto font-audimat mt-2 rounded-none text-xl bg-gradient-to-r from-airlinepurple to-airlinepink text-white cursor-default`}>
                             Submit
                           </Button>
 
@@ -233,14 +233,14 @@ export function LoginComponent({ isLoggedIn, setIsLoggedIn, loginUser, name }: L
                         </div>
 
                       </div>
-                    )}
+                    )} */}
                   </div>
                 </div>
               )}
             </DialogHeader>
 
             <DialogFooter>
-              <div className="flex w-full">
+              {/* <div className="flex w-full">
                 <Button onClick={toggleAddUserDropdown} className={`flex-grow  w-11/12 h-full font-audimat rounded-none text-xl bg-gradient-to-r from-airlinepurple to-airlinepink text-white`}>
                   Add New User
                 </Button>
@@ -248,7 +248,7 @@ export function LoginComponent({ isLoggedIn, setIsLoggedIn, loginUser, name }: L
                 <Button onClick={handleDeleteAllPersonas} className={`flex-grow  ml-1 w-1/8 font-audimat rounded-none text-lg h-full bg-gradient-to-r from-airlinepurple to-airlinepink text-white`}>
                   &#x21bb;
                 </Button>
-              </div>
+              </div> */}
 
 
             </DialogFooter>
