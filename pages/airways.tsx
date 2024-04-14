@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import TripsContext from "@/utils/contexts/TripContext";
 import { useToast } from "@/components/ui/use-toast";
-import { Toaster } from "@/components/ui/toaster";
 import { useFlags, useLDClient } from "launchdarkly-react-client-sdk";
 import NavBar from "@/components/ui/navbar";
 import AirlineInfoCard from "@/components/ui/airwayscomponents/airlineInfoCard";
@@ -99,12 +98,18 @@ export default function Airways() {
     toast({
       title: "Flight booked",
       description: `Your round trip from ${fromLocation} to ${toLocation} and back has been booked.`,
+      style: { backgroundImage: 'linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)',
+        color: '#58595B',
+        borderRadius: '0.0rem',
+        padding: '1rem',
+        fontWeight: 'bold',
+        boxShadow: '10px 10px 40px 1px rgba(0, 0, 0, 0.5)'
+      },
     });
   }
 
   return (
     <>
-      <Toaster />
       <AnimatePresence mode="wait">
         {!isLoggedIn ? (
           <LoginHomePage name="Launch Airways" />) : (

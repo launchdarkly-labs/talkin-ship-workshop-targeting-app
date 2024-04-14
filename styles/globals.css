@@ -129,13 +129,6 @@
   background-image: linear-gradient(90deg, #edf4c9, #9eadf1);
 }
 
-.marketplace {
-  background: var(--gradients-gradient-yg, linear-gradient(225deg, #EBFF38 -7.08%, #3DD6F5 90.68%));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 .card1image {
   /* transform: rotate(12.22deg); */
   flex-shrink: 0;
@@ -205,10 +198,6 @@ line-height: normal;
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
-}
-
-.button-bank {
-  background-color: #007bff; 
 }
 
 .button-airlines {

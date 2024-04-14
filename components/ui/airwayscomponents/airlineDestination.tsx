@@ -45,7 +45,7 @@ const AirlineDestination = ({
           </button>
           <p className="text-center text-xs font-audimat uppercase">Origin</p>
         </div>
-        <MoveHorizontalIcon className="h-14 w-14 text-marketblue grid col-start-2 mx-auto" />
+        <MoveHorizontalIcon className="  grid col-start-2 mx-auto text-green-200" strokeWidth={1} size={75}/>
         <div className="relative text-center grid col-start-3">
           <button
             onClick={() => {

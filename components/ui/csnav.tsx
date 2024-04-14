@@ -15,32 +15,8 @@ import { motion } from "framer-motion";
 export function CSNav() {
   const router = useRouter();
 
-  function goHome() {
-    router.push("/");
-  }
-
-  function goRelease() {
-    router.push("/bank");
-  }
-
   function goTargeting() {
     router.push("/airways");
-  }
-
-  function goExp() {
-    router.push("/marketplace");
-  }
-
-  function goMobile() {
-    router.push("/mobile");
-  }
-
-  function goCode() {
-    router.push("/examples");
-  }
-
-  function goArchitecture() {
-    router.push("/architecture");
   }
 
   return (
@@ -74,23 +50,9 @@ export function CSNav() {
               </div>
               
             </motion.div>
-        
-            <div>
-              <Button onClick={goCode} variant={"secondary"} className="w-full rounded-xl">
-                Code Examples
-              </Button>
-            </div>
-            <div>
-              <Button onClick={goArchitecture} variant={"secondary"} className="w-full rounded-xl">
-                Architecture
-              </Button>
-            </div>
           </div>
         </div>
         <SheetFooter>
-          {/* <SheetClose asChild>
-            <Button type="submit">Save changes</Button>
-          </SheetClose> */}
         </SheetFooter>
       </SheetContent>
     </Sheet>
