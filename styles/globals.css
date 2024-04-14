@@ -210,3 +210,9 @@ line-height: normal;
   background: linear-gradient(to right, #3b82f6, #10b981); 
   color: black;
 }
+
+.airlinesbordergradient {
+  border: 4px solid transparent;
+  border-image: linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%) 1;
+  box-shadow: 0 0 0 4px transparent;
+}
