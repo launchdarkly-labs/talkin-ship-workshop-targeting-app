@@ -1,8 +1,8 @@
 //@ts-nocheck
-import * as React from "react"
-import { useRef, useEffect, useContext } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import * as React from "react";
+import { useRef, useEffect, useContext } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { useState } from "react";
 import {
   Dialog,
@@ -11,22 +11,33 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 import { PersonaContext } from "../personacontext";
 
 interface LoginComponentProps {
   isLoggedIn: boolean;
   setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
-  loginUser: any
+  loginUser: any;
   name: string;
 }
 
-export function LoginComponent({ isLoggedIn, setIsLoggedIn, loginUser, name }: LoginComponentProps) {
+export function LoginComponent({
+  isLoggedIn,
+  setIsLoggedIn,
+  loginUser,
+  name,
+}: LoginComponentProps) {
   const inputRef = useRef();
   const [activeElement, setActiveElement] = useState(null);
-  const [defaultEmail, setDefaultEmail] = useState('jenn@launchmail.io');
-  const [newPersona, setNewPersona] = useState({ name: '', type: '', image: '', email: '' });
-  const { personas, addPersona, deleteAllPersonas, getPersonas } = useContext(PersonaContext);
+  const [defaultEmail, setDefaultEmail] = useState("jenn@launchmail.io");
+  const [newPersona, setNewPersona] = useState({
+    name: "",
+    type: "",
+    image: "",
+    email: "",
+  });
+  const { personas, addPersona, deleteAllPersonas, getPersonas } =
+    useContext(PersonaContext);
   const [isAddUserDropdownOpen, setIsAddUserDropdownOpen] = useState(false);
   const [submitError, setSubmitError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -63,34 +74,31 @@ export function LoginComponent({ isLoggedIn, setIsLoggedIn, loginUser, name }: L
     setSubmitError(null);
   };
 
-
   function handleLogin(e) {
     setIsLoggedIn(true);
     let email;
     let name;
-    const activePersona = personas.find(p => p.personaname === activeElement);
+    const activePersona = personas.find((p) => p.personaname === activeElement);
     if (activePersona) {
       email = activePersona.personaemail;
       name = activePersona.personaname;
-    }
-    else {
+    } else {
       // email = 'jenn@launchmail.io';
       // name = 'Jenn';
-    email = defaultEmail;
-    name = email.split('@')[0];
-    name = name.charAt(0).toUpperCase() + name.slice(1);
+      email = defaultEmail;
+      name = email.split("@")[0];
+      name = name.charAt(0).toUpperCase() + name.slice(1);
     }
     loginUser(name, email);
-  };
+  }
 
   const handleDeleteAllPersonas = () => {
     setIsLoading(true);
-    deleteAllPersonas()
-      .then(() => {
-        getPersonas();
-        setIsLoading(false);
-      })
-  }
+    deleteAllPersonas().then(() => {
+      getPersonas();
+      setIsLoading(false);
+    });
+  };
 
   const handleSetActive = (personaname, personaemail) => {
     setActiveElement(personaname);
@@ -109,7 +117,6 @@ export function LoginComponent({ isLoggedIn, setIsLoggedIn, loginUser, name }: L
 
   return (
     <div className="w-full  bg-white font-audimat shadow-xl mx-auto">
-
       <div className="flex flex-col justify-center mx-auto text-center">
         <img
           src={"/launch-airways.svg"}
@@ -133,19 +140,25 @@ export function LoginComponent({ isLoggedIn, setIsLoggedIn, loginUser, name }: L
 
         <Button
           onClick={handleLogin}
-          className={`mb-4 w-full h-full mx-auto font-audimat rounded-none  text-xl bg-gradient-to-r from-airlinepurple to-airlinepink text-white`}>
+          className={`mb-4 w-full h-full mx-auto font-audimat rounded-none  text-xl bg-gradient-to-r from-airlinepurple to-airlinepink text-white`}
+        >
           Login with SSO
         </Button>
 
-        <Dialog onDismiss={() => { setIsAddUserDropdownOpen(false) }} className="z-10">
-          <DialogTrigger className={`mb-4 p-2 w-full h-full mx-auto font-audimat rounded-none text-xl bg-gradient-to-r from-airlinepurple to-airlinepink text-white hover:bg-gray-800`}>
+        <Dialog
+          onDismiss={() => {
+            setIsAddUserDropdownOpen(false);
+          }}
+          className="z-10"
+        >
+          <DialogTrigger
+            className={`mb-4 p-2 w-full h-full mx-auto font-audimat rounded-none text-xl bg-gradient-to-r from-airlinepurple to-airlinepink text-white hover:bg-gray-800`}
+          >
             Switch SSO User
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
               <DialogTitle>Switch SSO User</DialogTitle>
-
-
 
               {isLoading ? (
                 <div className="flex justify-center items-center h-64">
@@ -155,11 +168,20 @@ export function LoginComponent({ isLoggedIn, setIsLoggedIn, loginUser, name }: L
                 <div className="overflow-y-auto">
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 justify-items-center mb-4 pt-6">
                     {personas.map((item: Persona) => (
-                      <div className="flex flex-col items-center cursor-pointer hover:brightness-[120%]" key={item.id}>
+                      <div
+                        className="flex flex-col items-center cursor-pointer hover:brightness-[120%]"
+                        key={item.personaemail}
+                      >
                         <img
                           src={item.personaimage}
-                          className={`w-24 rounded-full mb-4 ${activeElement === item.personaname ? 'border-4 border-black' : ''}`}
-                          onClick={() => handleSetActive(item.personaname, item.personaemail)}
+                          className={`w-24 rounded-full mb-4 ${
+                            activeElement === item.personaname
+                              ? "border-4 border-black"
+                              : ""
+                          }`}
+                          onClick={() =>
+                            handleSetActive(item.personaname, item.personaemail)
+                          }
                           alt={item.personaname}
                         />
                         <p className="text-xs sm:text-sm md:text-base text-center font-bold font-sohnelight">
@@ -249,13 +271,9 @@ export function LoginComponent({ isLoggedIn, setIsLoggedIn, loginUser, name }: L
                   &#x21bb;
                 </Button>
               </div> */}
-
-
             </DialogFooter>
           </DialogContent>
         </Dialog>
-
-
       </div>
       <div className="grid  sm:flex-row  justify-between px-8 pb-8">
         <div className="pb-3">
