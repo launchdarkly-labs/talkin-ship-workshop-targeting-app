@@ -20,9 +20,8 @@ import QRCodeImage from "./QRCodeImage";
 import { PersonaContext } from "../personacontext";
 import { QuickLoginDialog } from "../quicklogindialog";
 
-
 const NavBar = React.forwardRef<any, NavBarProps>(
-  ({ launchClubLoyalty, className, handleLogout, ...props }, ref) => {
+  ({ launchClubLoyalty = false, className, handleLogout, ...props }, ref) => {
     const { isLoggedIn, enrolledInLaunchClub, user } = useContext(LoginContext);
     let navChild, navLogo, navLinkMobileDropdown, navLinksGroup;
     const navLinkStyling =
@@ -48,8 +47,8 @@ const NavBar = React.forwardRef<any, NavBarProps>(
                 <Avatar>
                   <AvatarImage
                     src={
-                      personas.find((persona) => persona.personaname === user)?.personaimage ||
-                      "ToggleAvatar.png"
+                      personas.find((persona) => persona.personaname === user)
+                        ?.personaimage || "ToggleAvatar.png"
                     }
                     className=""
                   />
@@ -61,8 +60,8 @@ const NavBar = React.forwardRef<any, NavBarProps>(
                   <div className="mx-auto flex place-content-center w-full">
                     <img
                       src={
-                        personas.find((persona) => persona.personaname === user)?.personaimage ||
-                        "ToggleAvatar.png"
+                        personas.find((persona) => persona.personaname === user)
+                          ?.personaimage || "ToggleAvatar.png"
                       }
                       className="rounded-full h-48"
                     />
@@ -70,8 +69,8 @@ const NavBar = React.forwardRef<any, NavBarProps>(
                   <div className="mx-auto text-center items-center align-center flex text-black font-sohnelight pt-4  text-xl align-center">
                     <p className="pt-4">
                       Thank you{" "}
-                      {personas.find((persona) => persona.personaname === user)?.personaname ||
-                        user}{" "}
+                      {personas.find((persona) => persona.personaname === user)
+                        ?.personaname || user}{" "}
                       for flying Launch Airways with{"  "}
                       <br></br>
                       <span className="text-2xl">Platinum Tier</span>!
@@ -96,8 +95,18 @@ const NavBar = React.forwardRef<any, NavBarProps>(
 
     navLogo = (
       <>
-        <svg xmlns="http://www.w3.org/2000/svg" height="40" width="50" className="pr-2">
-          <image href="/launch-airways.svg" height="40" width="40" alt="Launch Airways" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="40"
+          width="50"
+          className="pr-2"
+        >
+          <image
+            href="/launch-airways.svg"
+            height="40"
+            width="40"
+            alt="Launch Airways"
+          />
         </svg>
         <p className="text-base flex font-sohnelight text-white">
           <strong className="font-semibold font-sohne">Launch</strong>
@@ -161,7 +170,9 @@ const NavBar = React.forwardRef<any, NavBarProps>(
           </DropdownMenuPortal>
         </DropdownMenu>
         {isLoggedIn ? (
-          <div className="hidden lg:flex sm:gap-x-2 lg:gap-x-6">{navLinksGroup}</div>
+          <div className="hidden lg:flex sm:gap-x-2 lg:gap-x-6">
+            {navLinksGroup}
+          </div>
         ) : null}
         {navChild}
       </nav>
