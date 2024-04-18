@@ -17,39 +17,37 @@ export const LoginProvider = ({ children }) => {
   const [launchClubStatus, setLaunchClubStatus] = useState("economy");
 
   const loginUser = async (user, email) => {
-    const context = await client?.getContext();
-    console.log("loginUser",context)
-    context.user.name = user;
-    context.user.email = email;
-    context.user.key = email;
-    context.audience.key = uuidv4().slice(0, 10)
     setIsLoggedIn(true);
     setUser(user);
     setEmail(email);
 
+    // get the context from LaunchDarkly
+    const context = await client?.getContext();
+    console.log("loginUser", context);
+
+    // set the user context
+    context.user = {
+      name: user,
+      email: email,
+      key: email,
+    };
     await client.identify(context);
   };
 
-  const updateAudienceContext = async () => {
-    const context = await client?.getContext();
-    console.log("updateAudienceContext",context)
-    context.audience.key = uuidv4().slice(0, 10);
-    await client.identify(context);
-  }
-
   const logoutUser = async () => {
-
     setIsLoggedIn(false);
     setUser("anonymous");
     setEnrolledInLaunchClub(false);
     const context = client?.getContext();
-    context.user.name = "anonymous";
+    context.user = {
+      anonymous: true,
+    };
     client.identify(context);
   };
 
   const setPlaneContext = async (plane) => {
     const context = await client?.getContext();
-    console.log("setPlaneContext",context)
+    console.log("setPlaneContext", context);
     context.experience.airplane = plane;
     console.log("Plane context registered for trip as - " + plane);
     client.identify(context);
@@ -57,7 +55,7 @@ export const LoginProvider = ({ children }) => {
 
   const upgradeLaunchClub = async (status) => {
     const context = await client?.getContext();
-    console.log("upgradeLaunchClub",context)
+    console.log("upgradeLaunchClub", context);
     setLaunchClubStatus(status);
     context.user.launchclub = status;
     console.log("User upgraded to " + status + " status");
@@ -78,7 +76,6 @@ export const LoginProvider = ({ children }) => {
         setEnrolledInLaunchClub,
         launchClubStatus,
         setLaunchClubStatus,
-        updateAudienceContext,
         loginUser,
         logoutUser,
       }}
