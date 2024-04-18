@@ -22,10 +22,16 @@ interface QuickLoginDialogProps {
 
 export function QuickLoginDialog({ personas }: QuickLoginDialogProps) {
   const { user, loginUser } = useContext(LoginContext);
-  const [isDialogOpen] = useState(true);
+  const [isDialogOpen, setIsDialogOpen] = useState(true);
 
   const personaClicked = (persona: Persona) => {
-    loginUser(persona.personaname, persona.personaemail);
+    const loggedInUser = {
+      email: persona.personaemail,
+      name: persona.personaname,
+      role: persona.personatype,
+    };
+    loginUser(loggedInUser);
+    setIsDialogOpen(false);
   };
 
   return (

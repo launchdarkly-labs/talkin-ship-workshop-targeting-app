@@ -1,7 +1,6 @@
 // TripsContext.js
 import { useLDClient } from "launchdarkly-react-client-sdk";
 import { createContext, useState, useEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
 
 const LoginContext = createContext();
 
@@ -16,10 +15,11 @@ export const LoginProvider = ({ children }) => {
   const [enrolledInLaunchClub, setEnrolledInLaunchClub] = useState(false);
   const [launchClubStatus, setLaunchClubStatus] = useState("economy");
 
-  const loginUser = async (user, email) => {
+  const loginUser = async (loggedInUser) => {
+    console.log(loggedInUser);
     setIsLoggedIn(true);
-    setUser(user);
-    setEmail(email);
+    setUser(loggedInUser.name);
+    setEmail(loggedInUser.email);
 
     // get the context from LaunchDarkly
     const context = await client?.getContext();
@@ -27,9 +27,10 @@ export const LoginProvider = ({ children }) => {
 
     // set the user context
     context.user = {
-      name: user,
-      email: email,
-      key: email,
+      name: loggedInUser.name,
+      email: loggedInUser.email,
+      role: loggedInUser.role,
+      key: loggedInUser.email,
     };
     await client.identify(context);
   };

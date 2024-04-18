@@ -50,46 +50,28 @@ export function LoginComponent({
     getPersonas();
   }, [isLoading]);
 
-  // const handleSubmitNewPersona = () => {
-  //   const emailExists = personas.some(persona => persona.personaEmail === newPersona.email);
-  //   if (emailExists) {
-  //     setSubmitError('A persona with this email already exists.');
-  //     return;
-  //   }
-  //   setIsLoading(true);
-  //   addPersona(newPersona)
-  //     .then(() => {
-  //       setIsAddUserDropdownOpen(false);
-  //       setIsLoading(false);
-  //       getPersonas();
-  //     })
-  //     .catch(error => {
-  //       setSubmitError('Failed to create new persona. Please try again.');
-  //       setIsLoading(false);
-  //     })
-  // };
-
   const showBackButton = () => {
     setIsAddUserDropdownOpen(false);
     setSubmitError(null);
   };
 
   function handleLogin(e) {
-    setIsLoggedIn(true);
-    let email;
-    let name;
-    const activePersona = personas.find((p) => p.personaname === activeElement);
+    console.log();
+    let loggedInUser = {};
+    const activePersona = personas.find((p) => p.personaemail === defaultEmail);
     if (activePersona) {
-      email = activePersona.personaemail;
-      name = activePersona.personaname;
+      loggedInUser.email = activePersona.personaemail;
+      loggedInUser.name = activePersona.personaname;
+      loggedInUser.role = activePersona.personatype;
     } else {
-      // email = 'jenn@launchmail.io';
-      // name = 'Jenn';
-      email = defaultEmail;
-      name = email.split("@")[0];
+      loggedInUser.email = defaultEmail;
+      let name = loggedInUser.email.split("@")[0];
       name = name.charAt(0).toUpperCase() + name.slice(1);
+      loggedInUser.name = name;
+      loggedInUser.role = "Standard User";
     }
-    loginUser(name, email);
+    loginUser(loggedInUser);
+    setIsLoggedIn(true);
   }
 
   const handleDeleteAllPersonas = () => {
