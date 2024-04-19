@@ -7,7 +7,6 @@ import { useState } from "react";
 import {
   Dialog,
   DialogContent,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -36,9 +35,8 @@ export function LoginComponent({
     image: "",
     email: "",
   });
-  const { personas, addPersona, deleteAllPersonas, getPersonas } =
-    useContext(PersonaContext);
-  const [isAddUserDropdownOpen, setIsAddUserDropdownOpen] = useState(false);
+  const { personas, getPersonas } = useContext(PersonaContext);
+  const [setIsAddUserDropdownOpen] = useState(false);
   const [submitError, setSubmitError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -56,7 +54,6 @@ export function LoginComponent({
   };
 
   function handleLogin(e) {
-    console.log();
     let loggedInUser = {};
     const activePersona = personas.find((p) => p.personaemail === defaultEmail);
     if (activePersona) {
@@ -74,14 +71,6 @@ export function LoginComponent({
     setIsLoggedIn(true);
   }
 
-  const handleDeleteAllPersonas = () => {
-    setIsLoading(true);
-    deleteAllPersonas().then(() => {
-      getPersonas();
-      setIsLoading(false);
-    });
-  };
-
   const handleSetActive = (personaname, personaemail) => {
     setActiveElement(personaname);
     setDefaultEmail(personaemail);
@@ -92,10 +81,6 @@ export function LoginComponent({
       handleLogin();
     }
   }, [activeElement]);
-
-  const toggleAddUserDropdown = () => {
-    setIsAddUserDropdownOpen(!isAddUserDropdownOpen);
-  };
 
   return (
     <div className="w-full  bg-white font-audimat shadow-xl mx-auto">
@@ -174,86 +159,10 @@ export function LoginComponent({
                         </p>
                       </div>
                     ))}
-
-                    {/* {isAddUserDropdownOpen && (
-                      <div className="absolute z-100 left-0 top-0 bottom-0 pt-8 w-full bg-white shadow-lg">
-                        <Button onClick={showBackButton} className={`absolute top-3 text-xs  mx-auto font-audimat left-4 h-5 rounded-full  bg-gradient-to-r from-airlinepurple to-airlinepink text-white`}>
-                          &larr;
-                        </Button>
-                        <div className="p-4">
-                          <div className="mb-2">
-                            <input
-                              type="text"
-                              name="name"
-                              placeholder="Name"
-                              value={newPersona.name}
-                              required
-                              onChange={handleNewPersonaChange}
-                              className="w-full p-2 border border-gray-300 rounded"
-                            />
-                          </div>
-                          <div className="mb-2">
-                            <input
-                              type="text"
-                              name="type"
-                              placeholder="Role"
-                              value={newPersona.type}
-                              required
-                              onChange={handleNewPersonaChange}
-                              className="w-full p-2 border border-gray-300 rounded"
-                            />
-                          </div>
-                          <div className="mb-2">
-                            <input
-                              type="text"
-                              name="email"
-                              placeholder="Email"
-                              value={newPersona.email}
-                              required
-                              onChange={handleNewPersonaChange}
-                              className="w-full p-2 border border-gray-300 rounded"
-                            />
-                          </div>
-                          <div className="mb-0 overflow-x-auto rounded">
-                            <div className="flex space-x-4 p-2">
-                              {['persona1.png', 'persona2.png', 'persona3.png', 'persona4.png', 'persona5.png'].map((imageName) => (
-                                <img
-                                  key={imageName}
-                                  src={`/personas/${imageName}`}
-                                  alt={imageName}
-                                  className={`w-24 h-24 rounded-full cursor-pointer ${newPersona.image === `/personas/${imageName}` ? 'border-4 border-blue-500' : ''}`}
-                                  onClick={() => setNewPersona({ ...newPersona, image: `/personas/${imageName}` })}
-                                />
-                              ))}
-                            </div>
-                          </div>
-                          <Button onClick={} className={`mb-2 w-full h-full mx-auto font-audimat mt-2 rounded-none text-xl bg-gradient-to-r from-airlinepurple to-airlinepink text-white cursor-default`}>
-                            Submit
-                          </Button>
-
-                          {submitError && (
-                            <p className="text-red-500 text-sm z-100">{submitError}</p>
-                          )}
-                        </div>
-
-                      </div>
-                    )} */}
                   </div>
                 </div>
               )}
             </DialogHeader>
-
-            <DialogFooter>
-              {/* <div className="flex w-full">
-                <Button onClick={toggleAddUserDropdown} className={`flex-grow  w-11/12 h-full font-audimat rounded-none text-xl bg-gradient-to-r from-airlinepurple to-airlinepink text-white`}>
-                  Add New User
-                </Button>
-
-                <Button onClick={handleDeleteAllPersonas} className={`flex-grow  ml-1 w-1/8 font-audimat rounded-none text-lg h-full bg-gradient-to-r from-airlinepurple to-airlinepink text-white`}>
-                  &#x21bb;
-                </Button>
-              </div> */}
-            </DialogFooter>
           </DialogContent>
         </Dialog>
       </div>

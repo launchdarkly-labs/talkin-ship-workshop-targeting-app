@@ -16,7 +16,6 @@ export const LoginProvider = ({ children }) => {
   const [launchClubStatus, setLaunchClubStatus] = useState("economy");
 
   const loginUser = async (loggedInUser) => {
-    console.log(loggedInUser);
     setIsLoggedIn(true);
     setUser(loggedInUser.name);
     setEmail(loggedInUser.email);
