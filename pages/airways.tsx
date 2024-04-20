@@ -13,7 +13,6 @@ import { AnimatePresence } from "framer-motion";
 import LoginHomePage from "@/components/LoginHomePage";
 import { setCookie } from "cookies-next";
 
-
 import AirlineHero from "@/components/ui/airwayscomponents/airlineHero";
 import AirlineDestination from "@/components/ui/airwayscomponents/airlineDestination";
 import LoginContext from "@/utils/contexts/login";
@@ -60,13 +59,13 @@ export default function Airways() {
     setCookie("ldcontext", context);
   }
 
-
-
   function bookTrip() {
-    const startDate = `${date!.from.getMonth() + 1
-      }/${date!.from.getDate()}/${date!.from.getFullYear()}`;
-    const returnDate = `${date!.to.getMonth() + 1
-      }/${date!.to.getDate()}/${date!.to.getFullYear()}`;
+    const startDate = `${
+      date!.from.getMonth() + 1
+    }/${date!.from.getDate()}/${date!.from.getFullYear()}`;
+    const returnDate = `${
+      date!.to.getMonth() + 1
+    }/${date!.to.getDate()}/${date!.to.getFullYear()}`;
     const tripIdOutbound = Math.floor(Math.random() * 900) + 100; // Generate a random 3 digit number for outbound trip
     const tripIdReturn = Math.floor(Math.random() * 900) + 100; // Generate a random 3 digit number for return trip
 
@@ -112,14 +111,18 @@ export default function Airways() {
     <>
       <AnimatePresence mode="wait">
         {!isLoggedIn ? (
-          <LoginHomePage name="Launch Airways" />) : (
+          <LoginHomePage name="Launch Airways" />
+        ) : (
           <motion.main
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             className={`flex h-screen text-white flex-col font-audimat`}
           >
-            <NavBar launchClubLoyalty={launchClubLoyalty} handleLogout={handleLogout} />
+            <NavBar
+              launchClubLoyalty={launchClubLoyalty}
+              handleLogout={handleLogout}
+            />
 
             <header className={`py-20 bg-gradient-airways`}>
               <div className="lg:mx-auto max-w-7xl px-2">
@@ -149,8 +152,9 @@ export default function Airways() {
                   </div>
 
                   <div
-                    className={`items-center text-xl font-audimat border-b-2 pb-2 border-white/40 ${showSearch ? "" : ""
-                      }`}
+                    className={`items-center text-xl font-audimat border-b-2 pb-2 border-white/40 ${
+                      showSearch ? "" : ""
+                    }`}
                   >
                     <FlightCalendar
                       date={date}
@@ -190,8 +194,9 @@ export default function Airways() {
 
             <section
               className={`relative flex flex-col sm:flex-row justify-center 
-              gap-x-0 gap-y-6 sm:gap-x-6 lg:gap-x-24 py-14 z-0 bg-white !font-sohne px-6 ${showSearch ? "blur-lg" : ""
-                }`}
+              gap-x-0 gap-y-6 sm:gap-x-6 lg:gap-x-24 py-14 z-0 bg-white !font-sohne px-6 ${
+                showSearch ? "blur-lg" : ""
+              }`}
             >
               <AirlineInfoCard
                 headerTitleText="Wheels up"

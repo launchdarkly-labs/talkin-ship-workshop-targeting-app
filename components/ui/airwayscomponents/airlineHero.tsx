@@ -6,10 +6,10 @@ import LoginContext from "@/utils/contexts/login";
 
 const AirlineHero = ({
   showSearch,
-  launchClubLoyalty,
+  launchClubLoyalty = false,
 }: {
   showSearch: any;
-  launchClubLoyalty: any;
+  launchClubLoyalty: boolean;
 }) => {
   const { isLoggedIn, enrolledInLaunchClub } = useContext(LoginContext);
 
@@ -23,12 +23,17 @@ const AirlineHero = ({
               <div className=" max-w-2xl py-[5rem] lg:max-w-none lg:py-32 z-10 lg:pr-10 ">
                 <div className="flex flex-row">
                   <div className={`flex flex-col`}>
-                    <h1 className={`text-4xl md:text-6xl xl:text-7xl pb-4 font-audimat`}>
+                    <h1
+                      className={`text-4xl md:text-6xl xl:text-7xl pb-4 font-audimat`}
+                    >
                       Launch Airways
                     </h1>
-                    <p className={`text-lg md:text-xl xl:text-2xl font-light pt-4 `}>
-                      Launch into the skies. In the air in milliseconds, reach your destination
-                      without risk, and ship your travel dreams faster than ever before.
+                    <p
+                      className={`text-lg md:text-xl xl:text-2xl font-light pt-4 `}
+                    >
+                      Launch into the skies. In the air in milliseconds, reach
+                      your destination without risk, and ship your travel dreams
+                      faster than ever before.
                     </p>
                     <div className="mt-10 flex justify-center sm:justify-start">
                       <Button className="bg-airlinegradient rounded-none h-full w-1/2 sm:w-1/3 text-3xl px-2 py-4">
@@ -47,10 +52,10 @@ const AirlineHero = ({
                    bg-gradient-releases shadow-2xl mb-[5rem]  lg:my-32 lg:absolute lg:right-10 rounded-lg text-white"
                 >
                   <div className="text-center">
-                    <h3 className="text-4xl  text-center mb-4">Are you ready to Launch?!</h3>
+                    <h3 className="text-4xl text-center mb-4">Are you ready to Launch?!</h3>
                     <p className="text-xl ">
-                      Join Launch Club for exclusive access to flights, rewards, and much more. See
-                      details within!
+                      Join Launch Club for exclusive access to flights, rewards,
+                      and much more. See details within!
                     </p>
                   </div>
                   <div className="h-full flex self-center">

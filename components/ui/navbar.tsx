@@ -23,10 +23,14 @@ import { QuickLoginDialog } from "../quicklogindialog";
 import { capitalizeFirstLetter } from "@/lib/utils";
 
 
-
 const NavBar = React.forwardRef<any, NavBarProps>(
+<<<<<<< HEAD
   ({ launchClubLoyalty, cart, setCart, className, variant, handleLogout, ...props }, ref) => {
     const { isLoggedIn, enrolledInLaunchClub, user, loginUser } = useContext(LoginContext);
+=======
+  ({ launchClubLoyalty = false, className, handleLogout, ...props }, ref) => {
+    const { isLoggedIn, enrolledInLaunchClub, user } = useContext(LoginContext);
+>>>>>>> c492e38ecc2aeb8ff298cce2287d87750264deb9
     let navChild, navLogo, navLinkMobileDropdown, navLinksGroup;
     const navLinkStyling =
       "hidden sm:block pb-12 pt-1.5 bg-transparent mr-4 flex items-start text-sm font-sohnelight font-medium transition-colors bg-no-repeat bg-bottom";
@@ -57,7 +61,12 @@ const NavBar = React.forwardRef<any, NavBarProps>(
                 <Avatar>
                   <AvatarImage
                     src={
+<<<<<<< HEAD
                       chosenPersona?.personaimage || 'ToggleAvatar.png'
+=======
+                      personas.find((persona) => persona.personaname === user)
+                        ?.personaimage || "ToggleAvatar.png"
+>>>>>>> c492e38ecc2aeb8ff298cce2287d87750264deb9
                     }
                     className=""
                   />
@@ -69,11 +78,17 @@ const NavBar = React.forwardRef<any, NavBarProps>(
                   <div className="mx-auto flex place-content-center w-full">
                     <img
                       src={
+<<<<<<< HEAD
                         chosenPersona?.personaimage || 'ToggleAvatar.png'
+=======
+                        personas.find((persona) => persona.personaname === user)
+                          ?.personaimage || "ToggleAvatar.png"
+>>>>>>> c492e38ecc2aeb8ff298cce2287d87750264deb9
                       }
                       className="rounded-full h-48"
                     />
                   </div>
+<<<<<<< HEAD
                   <div className="mx-auto text-center">
                     <p className="text-2xl font-normal text-black font-shone mt-4">
                       Hi {chosenPersona?.personaname}
@@ -82,6 +97,16 @@ const NavBar = React.forwardRef<any, NavBarProps>(
                   <div className="mx-auto text-center">
                     <p className="text-md uppercase font-normal tracking-widest text-[#939598] font-shone mt-0">
                       {launchClubStatus} MEMBER
+=======
+                  <div className="mx-auto text-center items-center align-center flex text-black font-sohnelight pt-4  text-xl align-center">
+                    <p className="pt-4">
+                      Thank you{" "}
+                      {personas.find((persona) => persona.personaname === user)
+                        ?.personaname || user}{" "}
+                      for flying Launch Airways with{"  "}
+                      <br></br>
+                      <span className="text-2xl">Platinum Tier</span>!
+>>>>>>> c492e38ecc2aeb8ff298cce2287d87750264deb9
                     </p>
                   </div>
                   <div className="mx-auto text-center">
@@ -103,8 +128,18 @@ const NavBar = React.forwardRef<any, NavBarProps>(
 
     navLogo = (
       <>
-        <svg xmlns="http://www.w3.org/2000/svg" height="40" width="50" className="pr-2">
-          <image href="/launch-airways.svg" height="40" width="40" alt="Launch Airways" />
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="40"
+          width="50"
+          className="pr-2"
+        >
+          <image
+            href="/launch-airways.svg"
+            height="40"
+            width="40"
+            alt="Launch Airways"
+          />
         </svg>
         <p className="text-base flex font-sohnelight text-white">
           <strong className="font-semibold font-sohne">Launch</strong>
@@ -176,7 +211,9 @@ const NavBar = React.forwardRef<any, NavBarProps>(
           </DropdownMenuPortal>
         </DropdownMenu>
         {isLoggedIn ? (
-          <div className="hidden lg:flex sm:gap-x-2 lg:gap-x-6">{navLinksGroup}</div>
+          <div className="hidden lg:flex sm:gap-x-2 lg:gap-x-6">
+            {navLinksGroup}
+          </div>
         ) : null}
         {navChild}
       </nav>
