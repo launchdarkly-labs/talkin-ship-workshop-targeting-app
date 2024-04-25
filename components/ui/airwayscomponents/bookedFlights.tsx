@@ -264,7 +264,7 @@ export default function BookedFlights() {
                                   </div>
                                 ) : (
                                   <div>
-                                    <p className="text-lg mb-4 font-sohne  bg-airlinegradient3 text-white p-4">
+                                    <p className="text-lg mb-4 font-sohne  bg-gradient-airways-red text-white p-4">
                                       AI Travel Insights{" "}
                                       <span className="text-sm">powered by Amazon Bedrock</span>{" "}
                                     </p>
@@ -325,14 +325,14 @@ export default function BookedFlights() {
 
                       {aiTravelInsights && (
                         <Popover>
-                          <PopoverTrigger className="relative bg-airlinegradient3 text-white font-bold py-3 px-4 bg-gradient-airline-buttons w-full   animate-pulse hover:animate-none">
+                          <PopoverTrigger className="relative bg-gradient-airways-red text-white font-bold py-3 px-4 bg-gradient-airline-buttons w-full   animate-pulse hover:animate-none">
                             AI Travel Insights
                           </PopoverTrigger>
                           <PopoverContent
                             onCloseAutoFocus={() => setAIResponse("")}
                             className=" max-w-screen h-full mt-2  pt-0 pl-0 pr-0  shadow-2xl"
                           >
-                            <div className="flex justify-center items-center bg-airlinegradient3 text-white sm:justify-normal">
+                            <div className="flex justify-center items-center bg-gradient-airways-red text-white sm:justify-normal">
                               <p className="text-lg mb-4 mt-4 font-sohne ml-4 mr-4">
                                 AI Travel Insights{" "}
                                 <span className="text-sm">powered by Amazon Bedrock</span>
