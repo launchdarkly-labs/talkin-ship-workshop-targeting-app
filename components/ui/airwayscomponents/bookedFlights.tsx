@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -32,9 +30,9 @@ export default function BookedFlights() {
   const { enrolledInLaunchClub } = useContext(LoginContext);
   const {
     launchClubLoyalty,
-    priorityBoarding,
     aiTravelInsights,
     mealPromoExperience,
+    priorityBoarding,
   } = useFlags();
   const [status, setStatus] = useState("Economy");
   const [aiResponse, setAIResponse] = useState("");
@@ -320,7 +318,6 @@ export default function BookedFlights() {
                               </p>
                             )}
                           </div>
-
                         </div>
                       </div>
                       <div className="p-8 w-full sm:w-1/3 bg-gradient-to-r from-purple-100 to-rose-100 md:flex-shrink-0">
