@@ -33,7 +33,7 @@ export function QuickLoginDialog({ personas }: QuickLoginDialogProps) {
       {isDialogOpen ? (
         <Dialog>
           <DialogTrigger
-            className={`w-full h-full p-1  font-shone rounded-none airlinesbordergradient text-xl border-4 text-black mt-4 hover:bg-airlinegradient2 hover:text-white`}
+            className={`w-full h-full p-1  font-shone rounded-none airlinesbordergradient text-xl border-4 text-black mt-4 hover:bg-gradient-airways-grey hover:text-white`}
           >
             Quick Login
           </DialogTrigger>

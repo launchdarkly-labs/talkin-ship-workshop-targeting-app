@@ -116,7 +116,7 @@ const AirportPicker: React.FC<AirportPickerProps> = ({
               {activeField === "from" ? "Origin" : "Destination"}
             </div>
             <input
-              className="w-full text-airlineBlack text-[60px] leading-[66.65px] outline-none border-b-2 bg-airlinegradient2 pb-4"
+              className="w-full text-airlineBlack text-[60px] leading-[66.65px] outline-none border-b-2 bg-gradient-airways-grey pb-4"
               placeholder="Airport"
               value={searchTerm}
               autoFocus
