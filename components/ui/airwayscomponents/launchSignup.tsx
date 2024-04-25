@@ -52,14 +52,12 @@ export default function LaunchSignUp() {
     {
       name: "Priority Boarding",
       img: "/boarding.png",
-      description:
-        "Be the first to board, with priority boarding",
+      description: "Be the first to board, with priority boarding",
     },
     {
       name: "Free Checked Bag",
       img: "/checkedbag.png",
-      description:
-        "Launch Club members get free bags on flights",
+      description: "Launch Club members get free bags on flights",
     },
     {
       name: "LaunchPad Access",
@@ -105,16 +103,17 @@ export default function LaunchSignUp() {
   return (
     <Sheet>
       <SheetTrigger className="text-white z-50" asChild>
-        <Button className="bg-pink-600 rounded-none h-full w-full bg-airlinegradient2 mx-auto text-3xl px-6 py-4 lg:px-4">
+        <Button className=" rounded-none mx-auto text-3xl p-6 h-full  animate-pulse hover:animate-none">
           Join Launch Club
         </Button>
       </SheetTrigger>
       {!enrolledInLaunchClub ? (
-        <SheetContent className="w-full lg:w-1/2 overflow-y-scroll bg-white grid items-center " side="right">
+        <SheetContent
+          className="w-full lg:w-1/2 overflow-y-scroll bg-white grid items-center "
+          side="right"
+        >
           <SheetHeader>
-            <SheetTitle className="font-sohne text-3xl flex items-center justify-center">
-
-            </SheetTitle>
+            <SheetTitle className="font-sohne text-3xl flex items-center justify-center"></SheetTitle>
             <SheetDescription className="font-sohnelight flex flex-col items-center justify-center text-center">
               <div className="flex flex-row items-center">
                 <svg xmlns="http://www.w3.org/2000/svg" height="100" width="175" className="pr-2">

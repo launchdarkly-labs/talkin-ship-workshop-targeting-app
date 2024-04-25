@@ -43,7 +43,6 @@ module.exports = {
         "gradient-mobile": "linear-gradient(65deg,#ff386b 3.6%,#ffaf38 98.81%)",
         "gradient-airways":
           "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
-        "airlinegradient": "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
         "airlinegradient2":"linear-gradient(200.65deg, #58595B -25.37%, #212121 75.5%)",
         "airlinegradient3":"linear-gradient(223.42deg, #FF386B -1.29%, #A34FDE 110.16%)",
         card4bottom:

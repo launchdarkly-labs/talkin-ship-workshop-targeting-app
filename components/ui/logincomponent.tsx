@@ -120,7 +120,7 @@ export function LoginComponent({ isLoggedIn, setIsLoggedIn, loginUser, name }: L
 
         <Button
           onClick={handleLogin}
-          className={`mb-4 w-full h-full mx-auto font-sohne rounded-none hover:bg-[#8952E6] text-xl bg-airlinegradient text-white`}>
+          className={`mb-4 w-full h-full mx-auto font-sohne rounded-none hover:bg-[#8952E6] text-xl bg-gradient-airways text-white`}>
           Login with SSO
         </Button>
 

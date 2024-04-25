@@ -107,7 +107,7 @@ const AirportPicker: React.FC<AirportPickerProps> = ({
           <div className="text-airlineBlack text-sm font-medium uppercase tracking-widest w-[7rem] pb-2  text-center ">
             Search
           </div>
-          <div className="w-full h-1 border-b-2 bg-airlinegradient justify-center mx-auto"></div>
+          <div className="w-full h-1 border-b-2 bg-gradient-airways justify-center mx-auto"></div>
         </div>
 
         <div className="flex-col justify-start items-start gap-[15px] flex">
@@ -122,7 +122,7 @@ const AirportPicker: React.FC<AirportPickerProps> = ({
               autoFocus
               onChange={(e) => setSearchTerm(e.target.value)}
               style={{
-                background: "bg-airlinegradient",
+                background: "bg-gradient-airways",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
               }}

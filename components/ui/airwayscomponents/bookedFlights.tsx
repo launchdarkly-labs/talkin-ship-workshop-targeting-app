@@ -132,7 +132,7 @@ export default function BookedFlights() {
           <div className="block sm:hidden lg:block cursor-pointer sm:text-airlineinactive sm:focus:text-airlinetext  sm:hover:text-white ">
             <span className="">My Bookings</span>
             {bookedTrips.length > 0 && (
-              <span className="absolute ml-2 lg:ml-0 lg:bottom-[35px] lg:right-[-25px] bg-airlinegradient rounded-full text-white text-xs w-5 h-5 pt-[.12rem] pr-[0.05rem] ">
+              <span className="absolute ml-2 lg:ml-0 lg:bottom-[35px] lg:right-[-25px] bg-gradient-airways rounded-full text-white text-xs w-5 h-5 pt-[.12rem] pr-[0.05rem] ">
                 {bookedTrips.length}
               </span>
             )}
@@ -314,7 +314,7 @@ export default function BookedFlights() {
                   <div className="p-6 xl:p-6 w-full sm:w-1/3 bg-[#F8F8F8] grid ticket-content-right-side ">
                     <div className="flex flex-col items-center justify-center space-y-4">
                       {enrolledInLaunchClub && priorityBoarding ? (
-                        <button className="bg-airlinegradient text-white font-bold py-2 px-4 w-full cursor-default">
+                        <button className="bg-gradient-airways text-white font-bold py-2 px-4 w-full cursor-default">
                           Launch Priority Upgrade
                         </button>
                       ) : (
