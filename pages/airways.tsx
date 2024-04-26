@@ -121,9 +121,9 @@ export default function Airways() {
           >
             <NavBar launchClubLoyalty={launchClubLoyalty} handleLogout={handleLogout} />
 
-            <header className={`py-20 bg-gradient-airways`}>
-              <div className="lg:mx-auto max-w-7xl px-2">
-                <div className="grid lg:flex lg:flex-row items-start lg:items-center lg:justify-between gap-y-6 lg:gap-y-0 lg:space-x-4">
+            <header className={` py-10 lg:py-20 bg-gradient-airways`}>
+              <div className="lg:mx-auto max-w-7xl px-2 sm:px-8 xl:px-0">
+                <div className="grid lg:flex lg:flex-row items-start lg:items-center lg:justify-around gap-y-6 lg:gap-y-0 lg:space-x-4">
                   <AirlineDestination
                     setActiveField={setActiveField}
                     setShowSearch={setShowSearch}
@@ -137,7 +137,7 @@ export default function Airways() {
                     setFromLocation={setFromLocation}
                   />
 
-                  <div className="grid h-10 border-b-2 border-white/40 text-4xl md:text-3xl lg:text-2xl xl:text-4xl px-4 pb-12 items-center text-center justify-center">
+                  <div className="grid h-10 border-b-2 border-white/40 text-4xl lg:text-3xl xl:text-4xl px-4 pb-12 items-center text-center justify-center">
                     <Select defaultValue="Round Trip">
                       <SelectTrigger className="text-white">
                         <SelectValue placeholder="Select trip type" />
