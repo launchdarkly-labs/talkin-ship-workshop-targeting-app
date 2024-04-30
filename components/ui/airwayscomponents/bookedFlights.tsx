@@ -18,6 +18,7 @@ import {
   Plane,
 } from "lucide-react";
 import { useFlags } from "launchdarkly-react-client-sdk";
+import CheckIn from "./checkin";
 import {
   Popover,
   PopoverContent,
@@ -332,6 +333,7 @@ export default function BookedFlights() {
                               Upgrade
                             </button>
                           )}
+                          <CheckIn trip={trip} />
                           {aiTravelInsights && (
                             <Popover>
                               <PopoverTrigger className="hover:bg-purple-500 text-white font-bold py-2 px-4 bg-gradient-to-r from-purple-500 to-rose-500 w-full">
@@ -344,7 +346,7 @@ export default function BookedFlights() {
                                 <p className="text-lg mb-4 font-sohne">
                                   AI Travel Insights{" "}
                                   <span className="text-sm">
-                                    powereed by Amazon Bedrock
+                                    powered by Amazon Bedrock
                                   </span>{" "}
                                 </p>
                                 <div className=" overflow-y-auto flex justify-center items-center">
