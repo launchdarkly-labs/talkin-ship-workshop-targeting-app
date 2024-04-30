@@ -61,7 +61,7 @@ export default function CheckIn({ trip }: any) {
               )}
               {mealPromoExperience && (
                 <p className="flex text-black  py-2 font-sohne bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-yellow-600  ">
-                  <PlaneIcon className="text-green-700 mr-2" /> A380 Meal Promo
+                  <PlaneIcon className="text-green-700 mr-2" /> A330 Meal Promo
                 </p>
               )}
             </div>

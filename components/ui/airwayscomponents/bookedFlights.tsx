@@ -29,12 +29,7 @@ import { BounceLoader } from "react-spinners";
 export default function BookedFlights() {
   const { bookedTrips, setBookedTrips, cancelTrip } = useContext(TripsContext);
   const { enrolledInLaunchClub } = useContext(LoginContext);
-  const {
-    launchClubLoyalty,
-    aiTravelInsights,
-    mealPromoExperience,
-    priorityBoarding,
-  } = useFlags();
+  const { launchClubLoyalty, aiTravelInsights, priorityBoarding } = useFlags();
   const [status, setStatus] = useState("Economy");
   const [aiResponse, setAIResponse] = useState("");
   const [toAirport, setToAirport] = useState("");
@@ -311,12 +306,6 @@ export default function BookedFlights() {
                                   WiFi
                                 </p>
                               </>
-                            )}
-                            {mealPromoExperience && (
-                              <p className="flex text-black  py-2 font-sohne bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-yellow-600  ">
-                                <PlaneIcon className="text-green-700 mr-2" />{" "}
-                                A380 Meal Promo
-                              </p>
                             )}
                           </div>
                         </div>
