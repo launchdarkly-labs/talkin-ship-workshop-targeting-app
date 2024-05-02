@@ -15,7 +15,7 @@ import LoginContext from "@/utils/contexts/login";
 import { useFlags } from "launchdarkly-react-client-sdk";
 
 export default function CheckIn({ trip }: any) {
-  const { launchClubLoyalty, mealPromoExperience, priorityBoarding } =
+  const { launchClubLoyalty, priorityBoarding, mealPromoExperience } =
     useFlags();
   const { enrolledInLaunchClub, getClient } = useContext(LoginContext);
 
