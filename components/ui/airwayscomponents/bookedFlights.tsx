@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
@@ -14,14 +12,18 @@ import TripsContext from "@/utils/contexts/TripContext";
 import LoginContext from "@/utils/contexts/login";
 import { ArrowRight, PersonStanding, Star, PlaneIcon, Wifi, Plane } from "lucide-react";
 import { useFlags } from "launchdarkly-react-client-sdk";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import CheckIn from "./checkin";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 import { BounceLoader } from "react-spinners";
 
 export default function BookedFlights() {
   const { bookedTrips, setBookedTrips, cancelTrip } = useContext(TripsContext);
   const { enrolledInLaunchClub } = useContext(LoginContext);
-  const { launchClubLoyalty, priorityBoarding, aiTravelInsights, mealPromoExperience } = useFlags();
-  const [status, setStatus] = useState("Economy");
+  const { launchClubLoyalty, aiTravelInsights, priorityBoarding } = useFlags();
   const [aiResponse, setAIResponse] = useState("");
   const [toAirport, setToAirport] = useState("");
   const [loading, setLoading] = useState(false);

@@ -37,7 +37,6 @@ export default function Airways() {
   const [showSearch, setShowSearch] = useState(false);
   const [activeField, setActiveField] = useState<"from" | "to" | null>(null);
   const { bookedTrips, setBookedTrips } = useContext(TripsContext);
-  const { setPlaneContext } = useContext(LoginContext);
   const [date, setDate] = useState<{ from: Date; to: Date } | undefined>({
     from: new Date(),
     to: addDays(new Date(), 7),
@@ -87,13 +86,11 @@ export default function Airways() {
       to: fromLocation,
       toCity: fromCity,
       depart: returnDate,
-      airplane: "a380",
+      airplane: "a330",
       type: "Return",
     };
 
     setBookedTrips([...bookedTrips, outboundTrip, returnTrip]);
-
-    setPlaneContext("a380");
 
     toast({
       title: "Flight booked",

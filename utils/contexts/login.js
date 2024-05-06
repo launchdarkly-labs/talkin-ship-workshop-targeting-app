@@ -30,6 +30,7 @@ export const LoginProvider = ({ children }) => {
       email: loggedInUser.email,
       role: loggedInUser.role,
       key: loggedInUser.email,
+      launchclub: launchClubStatus,
     };
     await client.identify(context);
   };
