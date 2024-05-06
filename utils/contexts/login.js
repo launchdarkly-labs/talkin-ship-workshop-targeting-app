@@ -63,10 +63,6 @@ export const LoginProvider = ({ children }) => {
     client.identify(context);
   };
 
-  const getClient = () => {
-    return client;
-  };
-
   return (
     <LoginContext.Provider
       value={{
@@ -83,7 +79,6 @@ export const LoginProvider = ({ children }) => {
         setLaunchClubStatus,
         loginUser,
         logoutUser,
-        getClient,
       }}
     >
       {children}

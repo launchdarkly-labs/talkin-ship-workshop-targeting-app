@@ -12,15 +12,15 @@ import {
 import { PersonStanding, PlaneIcon, Wifi } from "lucide-react";
 import { useContext } from "react";
 import LoginContext from "@/utils/contexts/login";
-import { useFlags } from "launchdarkly-react-client-sdk";
+import { useFlags, useLDClient } from "launchdarkly-react-client-sdk";
 
 export default function CheckIn({ trip }: any) {
   const { launchClubLoyalty, priorityBoarding, mealPromoExperience } =
     useFlags();
-  const { enrolledInLaunchClub, getClient } = useContext(LoginContext);
+  const { enrolledInLaunchClub } = useContext(LoginContext);
+  const client = useLDClient();
 
   const handleCheckIn = async () => {
-    const client = getClient();
     const context = await client?.getContext();
 
     context.experience = {
