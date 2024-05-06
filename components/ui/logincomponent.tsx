@@ -67,21 +67,9 @@ export function LoginComponent({
       loggedInUser.name = name;
       loggedInUser.role = "Standard User";
     }
-<<<<<<< HEAD
-    else {
-      // email = 'jenn@launchmail.io';
-      // name = 'Jenn';
-      email = defaultEmail;
-      name = email.split('@')[0];
-      name = name.charAt(0).toUpperCase() + name.slice(1);
-    }
-    loginUser(name, email);
-  };
-=======
     loginUser(loggedInUser);
     setIsLoggedIn(true);
   }
->>>>>>> c492e38ecc2aeb8ff298cce2287d87750264deb9
 
   const handleSetActive = (personaname, personaemail) => {
     setActiveElement(personaname);
@@ -119,7 +107,6 @@ export function LoginComponent({
 
         <Button
           onClick={handleLogin}
-<<<<<<< HEAD
           className={`mb-4 w-full h-full mx-auto font-sohne rounded-none hover:bg-airlinegradient2 text-xl bg-airlinegradient text-white`}>
           Login with SSO
         </Button>
@@ -127,23 +114,6 @@ export function LoginComponent({
         <Dialog onDismiss={() => { setIsAddUserDropdownOpen(false) }} className="z-10">
           <DialogTrigger className={`mb-4 p-2 w-full h-full mx-auto font-sohne rounded-none text-xl  text-black  hover:bg-airlinegradient2 hover:text-white  border-2`} style={{ borderImage: 'linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)', borderImageSlice: '1' }}>           
            Switch SSO User
-=======
-          className={`mb-4 w-full h-full mx-auto font-audimat rounded-none  text-xl bg-gradient-to-r from-airlinepurple to-airlinepink text-white`}
-        >
-          Login with SSO
-        </Button>
-
-        <Dialog
-          onDismiss={() => {
-            setIsAddUserDropdownOpen(false);
-          }}
-          className="z-10"
-        >
-          <DialogTrigger
-            className={`mb-4 p-2 w-full h-full mx-auto font-audimat rounded-none text-xl bg-gradient-to-r from-airlinepurple to-airlinepink text-white hover:bg-gray-800`}
-          >
-            Switch SSO User
->>>>>>> c492e38ecc2aeb8ff298cce2287d87750264deb9
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
@@ -185,11 +155,6 @@ export function LoginComponent({
                 </div>
               )}
             </DialogHeader>
-<<<<<<< HEAD
-            <DialogFooter>
-            </DialogFooter>
-=======
->>>>>>> c492e38ecc2aeb8ff298cce2287d87750264deb9
           </DialogContent>
         </Dialog>
       </div>

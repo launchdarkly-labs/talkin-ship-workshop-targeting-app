@@ -16,11 +16,11 @@ const AirlineHero = ({
   return (
     <section className={`airline-hero-image  ${showSearch ? "blur-lg" : ""}`}>
       <div className="flex flex-col">
-        <div className={`relative `}>
+        <div className={`relative`}>
           <div aria-hidden="true" className="absolute hidden h-full w-1/2 lg:block" />
-          <div className="relative ">
+          <div className="relative bg-transparent">
             <div className={`mx-auto max-w-7xl px-4 sm:px-6 grid lg:grid-cols-2 lg:px-8 `}>
-              <div className=" max-w-2xl py-[5rem] lg:max-w-none lg:py-32 z-10 lg:pr-10 ">
+              <div className=" max-w-2xl py-[5rem] lg:max-w-none lg:py-32 z-10 lg:pr-10">
                 <div className="flex flex-row">
                   <div className={`flex flex-col`}>
                     <h1

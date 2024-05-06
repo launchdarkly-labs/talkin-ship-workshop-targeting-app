@@ -330,7 +330,7 @@ export default function BookedFlights() {
                           </PopoverTrigger>
                           <PopoverContent
                             onCloseAutoFocus={() => setAIResponse("")}
-                            className=" max-w-screen h-full mt-2  pt-0 pl-0 pr-0  shadow-2xl"
+                            className="w-full sm:w-[400px] h-[300px] sm:h-[400px] mt-2 sm:absolute sm:right-[0%]"
                           >
                             <div className="flex justify-center items-center bg-airlinegradient3 text-white sm:justify-normal">
                               <p className="text-lg mb-4 mt-4 font-sohne ml-4 mr-4">
