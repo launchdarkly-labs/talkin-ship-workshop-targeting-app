@@ -10,13 +10,10 @@ import {
 import type { AppProps } from "next/app";
 import NoSSRWrapper from "@/components/no-ssr";
 import { asyncWithLDProvider } from "launchdarkly-react-client-sdk";
-import { v4 as uuidv4 } from "uuid";
 import { TripsProvider } from "@/utils/contexts/TripContext";
 import { LoginProvider } from "@/utils/contexts/login";
-import KeyboardNavigation from "@/components/KeyboardNavigation";
 import Head from "next/head";
 import { PersonaProvider } from "@/components/personacontext";
-import { QuickCommandDialog } from "@/components/quickcommand";
 
 let c;
 
@@ -70,9 +67,7 @@ if (typeof window !== "undefined") {
         <LDProvider>
           <PersonaProvider>
             <LoginProvider>
-              <QuickCommandDialog>
                 <TripsProvider>
-                  <KeyboardNavigation />
                   <Head>
                     <meta
                       name="viewport"
@@ -82,7 +77,6 @@ if (typeof window !== "undefined") {
                   </Head>
                   <Component {...pageProps} />
                 </TripsProvider>
-              </QuickCommandDialog>
             </LoginProvider>
           </PersonaProvider>
         </LDProvider>
