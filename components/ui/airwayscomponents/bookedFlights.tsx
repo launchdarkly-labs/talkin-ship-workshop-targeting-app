@@ -23,7 +23,8 @@ import { BounceLoader } from "react-spinners";
 export default function BookedFlights() {
   const { bookedTrips, setBookedTrips, cancelTrip } = useContext(TripsContext);
   const { enrolledInLaunchClub } = useContext(LoginContext);
-  const { launchClubLoyalty, aiTravelInsights, priorityBoarding } = useFlags();
+  const { launchClubLoyalty, priorityBoarding, aiTravelInsights, mealPromoExperience } = useFlags();
+  const [status, setStatus] = useState("Economy");
   const [aiResponse, setAIResponse] = useState("");
   const [toAirport, setToAirport] = useState("");
   const [loading, setLoading] = useState(false);
@@ -285,16 +286,8 @@ export default function BookedFlights() {
                           <p className=" text-black font-shone text-l">{trip.id}</p>
                         </div>
                       </div>
-
                       <div className="border-2 mt-2 border-[#E6E6E6]" />
-
                       <div className="ticket-benefits-list flex justify-between align-center gap-x-1">
-                        {mealPromoExperience && (
-                          <p className="flex text-black   bg-clip-text text-transparent bg-black ">
-                            <PlaneIcon className=" mr-2" color="blue" /> A380 Meal Promo
-                          </p>
-                        )}
-
                         {enrolledInLaunchClub && launchClubLoyalty && (
                           <>
                             {priorityBoarding && (
@@ -324,7 +317,7 @@ export default function BookedFlights() {
                           Upgrade
                         </button>
                       )}
-
+                      <CheckIn trip={trip} />
                       {aiTravelInsights && (
                         <Popover>
                           <PopoverTrigger className="relative bg-airlinegradient3 text-white font-bold py-3 px-4 bg-gradient-airline-buttons w-full   animate-pulse hover:animate-none">
