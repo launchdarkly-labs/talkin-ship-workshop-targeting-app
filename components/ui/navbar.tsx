@@ -20,8 +20,21 @@ import {
 import LaunchClubStatus from "./airwayscomponents/launchClubStatus";
 import { PersonaContext } from "../personacontext";
 import { QuickLoginDialog } from "../quicklogindialog";
-import { capitalizeFirstLetter } from "@/lib/utils";
 
+interface NavBarProps {
+  cart: InventoryItem[];
+  personas: Persona[];
+  setCart: React.Dispatch<React.SetStateAction<InventoryItem[]>>;
+  variant: string;
+}
+
+interface Persona {
+  id: string | number;
+  personaname: string;
+  personatype: string;
+  personaimage: string;
+  personaemail: string;
+}
 
 const NavBar = React.forwardRef<any, NavBarProps>(
   ({ launchClubLoyalty, cart, setCart, className, variant, handleLogout, ...props }, ref) => {
