@@ -51,20 +51,18 @@ export default function LaunchSignUp() {
   const perks = [
     {
       name: "Priority Boarding",
-      img: "/boarding.jpg",
-      description:
-        "No more waiting in line. Be the first to board, with priority boarding at all levels!",
+      img: "/boarding.png",
+      description: "Be the first to board, with priority boarding",
     },
     {
       name: "Free Checked Bag",
-      img: "/luggage.jpg",
-      description:
-        "Never pay for a checked bag again. Launch Club members get free bags on flights.",
+      img: "/checkedbag.png",
+      description: "Launch Club members get free bags on flights",
     },
     {
       name: "LaunchPad Access",
-      img: "/launchpad.jpg",
-      description: "Stock up for flights with access to LaunchPad locations at airports worldwide.",
+      img: "/launchpad.png",
+      description: "Access to LaunchPad locations worldwide",
     },
   ];
 
@@ -105,25 +103,25 @@ export default function LaunchSignUp() {
   return (
     <Sheet>
       <SheetTrigger className="text-white z-50" asChild>
-        <Button className="bg-pink-600 rounded-none h-full w-full  mx-auto text-3xl px-6 py-4 lg:px-4">
+        <Button className="bg-gradient-airways-grey rounded-none mx-auto text-3xl p-6 h-full  animate-pulse hover:animate-none">
           Join Launch Club
         </Button>
       </SheetTrigger>
       {!enrolledInLaunchClub ? (
-        <SheetContent className="w-full lg:w-1/2 overflow-y-scroll bg-white" side="right">
+        <SheetContent
+          className="w-full lg:w-2/3 xl:w-1/2 overflow-y-scroll bg-white grid items-center "
+          side="right"
+        >
           <SheetHeader>
-            <SheetTitle className="font-sohne text-3xl flex items-center justify-center">
-              <div className="flex items-center text-3xl flex-col">
-                <svg xmlns="http://www.w3.org/2000/svg" height="200" width="350" className="pr-2">
-                  <image href="/launch-airways.svg" height="200" width="350" alt="Launch Airways" />
-                </svg>
-              </div>
-            </SheetTitle>
+            <SheetTitle className="font-sohne text-3xl flex items-center justify-center"></SheetTitle>
             <SheetDescription className="font-sohnelight flex flex-col items-center justify-center text-center">
-              <div className="flex">
+              <div className="flex flex-row items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" height="100" width="175" className="pr-2">
+                  <image href="/launch-airways.svg" height="100" width="150" alt="Launch Airways" />
+                </svg>
                 <h1 className="text-black text-4xl">Launch Club Loyalty Program</h1>
               </div>
-              <div className="flex text-xl my-4 text-black text-center">
+              <div className="flex text-xl my-4  text-black text-center lg:mx-40 sm:mx-auto">
                 Introducing our the new Launch Airways loyalty program. Join now for exclusive
                 member perks that increase the more you fly!
               </div>
@@ -135,10 +133,10 @@ export default function LaunchSignUp() {
                     align-items-center drop-shadow-2xl p-4 gap-y-2"
                   >
                     <CardHeader className="!p-0">
-                      <Image src={perks.img} height={200} width={200} alt="image"  />
+                      <Image src={perks.img} height={100} width={100} alt="image" />
                     </CardHeader>
-                    <CardTitle className="text-lg ">{perks.name}</CardTitle>
-                    <CardContent className="text-sm text-center !p-0">
+                    <CardTitle className="text-lg font-shone font-normal ">{perks.name}</CardTitle>
+                    <CardContent className="text-normal font-shone text-center font-light !p-2 mx-10 sm:mx-2">
                       {perks.description}
                     </CardContent>
                   </Card>
@@ -150,7 +148,7 @@ export default function LaunchSignUp() {
                     onClick={() => {
                       enrollLaunchClub();
                     }}
-                    className="w-full mx-auto font-sohnelight text-white rounded-none bg-gradient-to-tr from-airlinepurple to-airlinepink text-lg"
+                    className="bg-[#405BFF] text-white text-lg h-full w-full py-4 mt-4 px-10 font-shone cursor-default rounded-none "
                   >
                     Enroll Today!
                   </Button>

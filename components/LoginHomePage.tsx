@@ -2,6 +2,10 @@ import { useContext } from "react";
 import { motion } from "framer-motion";
 import NavBar from "@/components/ui/navbar";
 import LoginContext from "@/utils/contexts/login";
+import Image from 'next/image';
+import airlineLoginHeroBackground from '@/assets/img/airways/airline-login-hero-background.jpeg';
+
+
 
 import { LoginComponent } from "@/components/ui/logincomponent";
 import AirlineInfoCard from "@/components/ui/airwayscomponents/airlineInfoCard";
@@ -13,7 +17,7 @@ interface LoginHomePageProps {
   name: string;
 }
 
-export default function LoginHomePage({name }: LoginHomePageProps) {
+export default function LoginHomePage({ name }: LoginHomePageProps) {
   const { isLoggedIn, setIsLoggedIn, loginUser } = useContext(LoginContext);
 
   const message = "Launch into the skies. In the air in milliseconds, reach your destination without risk, and ship your travel dreams faster than ever before.";
@@ -29,30 +33,34 @@ export default function LoginHomePage({name }: LoginHomePageProps) {
         <NavBar />
       </div>
 
-      <header className={`w-full bg-gradient-airways mb-[4rem]`}>
-        <div
-          className="w-full py-14 sm:py-[8rem] px-12 xl:px-32 2xl:px-[300px] 3xl:px-[400px] flex flex-col sm:flex-row justify-between
-             items-center sm:items-start"
-        >
-          <div
-            className="grid grid-cols-2 sm:flex flex-row sm:flex-col 
-              text-white w-full sm:w-1/2 justify-start mb-4 pr-10 sm:mb-0 gap-y-10"
-          >
-            <p className="text-2xl lg:text-6xl xl:text-[80px] 3xl:text-[112px] font-audimat col-span-2 sm:col-span-0 w-full">
-              Welcome to {name}{" "}
-            </p>
-            <p className="col-span-2 sm:col-span-0 text-xl lg:text-2xl 3xl:text-4xl font-sohnelight w-full">
-              {message}
-            </p>
-          </div>
+      <header className={`w-full mb-[4rem] relative`}>
+        <div className="relative" style={{ height: 'auto' }}>
+          <Image
+            src={airlineLoginHeroBackground}
+            alt="Airline Login Hero Background"
+            layout="fill"
+            objectFit="cover"
+            quality={100}
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-[#21212100] to-[#212121ff]"></div>
+          <div className="w-full py-14 sm:py-[8rem] px-12 xl:px-32 2xl:px-[300px] 3xl:px-[400px] flex flex-col sm:flex-row justify-between items-center sm:items-start">
+            <div className="grid grid-cols-2 sm:flex flex-row sm:flex-col text-white w-full sm:w-1/2 justify-start mb-4 pr-10 sm:mb-0 gap-y-10 z-10" style={{ position: 'relative', zIndex: 2 }}>
+              <p className="text-2xl mt-20 lg:text-6xl xl:text-[80px] 3xl:text-[112px] font-audimat col-span-2 sm:col-span-0 w-full">
+                Welcome to {name}{" "}
+              </p>
+              <p className="col-span-2 sm:col-span-0 text-xl lg:text-2xl 3xl:text-4xl font-sohnelight w-full">
+                {message}
+              </p>
+            </div>
 
-          <div className="w-full sm:w-auto z-10">
-            <LoginComponent
-              isLoggedIn={isLoggedIn}
-              setIsLoggedIn={setIsLoggedIn}
-              loginUser={loginUser}
-              name={name}
-            />
+            <div className="w-full sm:w-auto z-10">
+              <LoginComponent
+                isLoggedIn={isLoggedIn}
+                setIsLoggedIn={setIsLoggedIn}
+                loginUser={loginUser}
+                name={name}
+              />
+            </div>
           </div>
         </div>
       </header>

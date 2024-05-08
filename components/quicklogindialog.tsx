@@ -21,11 +21,18 @@ interface QuickLoginDialogProps {
 }
 
 export function QuickLoginDialog({ personas }: QuickLoginDialogProps) {
-  const { user, loginUser } = useContext(LoginContext);
-  const [isDialogOpen] = useState(true);
+  const { user, loginUser, logoutUser } = useContext(LoginContext);
+  const [isDialogOpen, setIsDialogOpen] = useState(true);
 
   const personaClicked = (persona: Persona) => {
-    loginUser(persona.personaname, persona.personaemail);
+    logoutUser();
+    const loggedInUser = {
+      email: persona.personaemail,
+      name: persona.personaname,
+      role: persona.personatype,
+    };
+    loginUser(loggedInUser);
+    setIsDialogOpen(true);
   };
 
   return (
@@ -33,7 +40,7 @@ export function QuickLoginDialog({ personas }: QuickLoginDialogProps) {
       {isDialogOpen ? (
         <Dialog>
           <DialogTrigger
-            className={`w-full min-h-full p-1  font-audimat rounded-none text-xl bg-gradient-to-r from-airlinepurple to-airlinepink text-white hover:bg-gray-800`}
+            className={`w-full h-full p-1  font-shone rounded-none text-xl border-4 bg-gradient-airways border-grey text-black mt-4 hover:bg-gradient-airways-grey hover:text-white`}
           >
             Quick Login
           </DialogTrigger>
@@ -42,22 +49,21 @@ export function QuickLoginDialog({ personas }: QuickLoginDialogProps) {
               <DialogTitle className="mb-4">Quick Login SSO User</DialogTitle>
 
               <div className="flex overflow-x-auto space-x-4 ">
-                {personas
+              {personas
                   .filter((persona) => persona.personaname !== user)
-                  .map((persona) => (
+                  .map((persona, index) => (
                     <div
-                      key={persona.id}
-                      className="flex flex-col items-center mr-2 cursor-pointer flex-shrink-0"
+                      key={index}
+                      className="flex flex-col items-center mr-2 cursor-pointer flex-shrink-0 "
                     >
                       <img
                         src={persona.personaimage}
-                        className="w-20 h-20 rounded-full"
+                        className="w-20 h-20 rounded-full hover:brightness-125"
                         onClick={() => personaClicked(persona)}
                         alt={persona.personaname}
                       />
-                      <p className="text-xs text-center mt-2">
-                        {persona.personaname}
-                      </p>
+                      <p className="mt-2 text-xs sm:text-sm md:text-base text-center font-bold font-sohnelight">{persona.personaname}</p>
+                      <p className="mt-2 text-xs sm:text-sm md:text-base text-center font-bold font-sohnelight">{persona.personatype}</p>
                     </div>
                   ))}
               </div>

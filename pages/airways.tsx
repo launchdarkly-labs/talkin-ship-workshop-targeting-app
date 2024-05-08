@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import TripsContext from "@/utils/contexts/TripContext";
 import { useToast } from "@/components/ui/use-toast";
-import { Toaster } from "@/components/ui/toaster";
 import { useFlags, useLDClient } from "launchdarkly-react-client-sdk";
 import NavBar from "@/components/ui/navbar";
 import AirlineInfoCard from "@/components/ui/airwayscomponents/airlineInfoCard";
@@ -13,7 +12,7 @@ import { FlightCalendar } from "@/components/ui/airwayscomponents/flightCalendar
 import { AnimatePresence } from "framer-motion";
 import LoginHomePage from "@/components/LoginHomePage";
 import { setCookie } from "cookies-next";
-
+import { Toaster } from "@/components/ui/toaster";
 
 import AirlineHero from "@/components/ui/airwayscomponents/airlineHero";
 import AirlineDestination from "@/components/ui/airwayscomponents/airlineDestination";
@@ -38,7 +37,6 @@ export default function Airways() {
   const [showSearch, setShowSearch] = useState(false);
   const [activeField, setActiveField] = useState<"from" | "to" | null>(null);
   const { bookedTrips, setBookedTrips } = useContext(TripsContext);
-  const { setPlaneContext } = useContext(LoginContext);
   const [date, setDate] = useState<{ from: Date; to: Date } | undefined>({
     from: new Date(),
     to: addDays(new Date(), 7),
@@ -61,13 +59,13 @@ export default function Airways() {
     setCookie("ldcontext", context);
   }
 
-
-
   function bookTrip() {
-    const startDate = `${date!.from.getMonth() + 1
-      }/${date!.from.getDate()}/${date!.from.getFullYear()}`;
-    const returnDate = `${date!.to.getMonth() + 1
-      }/${date!.to.getDate()}/${date!.to.getFullYear()}`;
+    const startDate = `${
+      date!.from.getMonth() + 1
+    }/${date!.from.getDate()}/${date!.from.getFullYear()}`;
+    const returnDate = `${
+      date!.to.getMonth() + 1
+    }/${date!.to.getDate()}/${date!.to.getFullYear()}`;
     const tripIdOutbound = Math.floor(Math.random() * 900) + 100; // Generate a random 3 digit number for outbound trip
     const tripIdReturn = Math.floor(Math.random() * 900) + 100; // Generate a random 3 digit number for return trip
 
@@ -88,13 +86,11 @@ export default function Airways() {
       to: fromLocation,
       toCity: fromCity,
       depart: returnDate,
-      airplane: "a380",
+      airplane: "a330",
       type: "Return",
     };
 
     setBookedTrips([...bookedTrips, outboundTrip, returnTrip]);
-
-    setPlaneContext("a380");
 
     toast({
       title: "Flight booked",
@@ -104,21 +100,25 @@ export default function Airways() {
 
   return (
     <>
-      <Toaster />
+    <Toaster />
       <AnimatePresence mode="wait">
         {!isLoggedIn ? (
-          <LoginHomePage name="Launch Airways" />) : (
+          <LoginHomePage name="Launch Airways" />
+        ) : (
           <motion.main
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5 }}
             className={`flex h-screen text-white flex-col font-audimat`}
           >
-            <NavBar launchClubLoyalty={launchClubLoyalty} handleLogout={handleLogout} />
+            <NavBar
+              launchClubLoyalty={launchClubLoyalty}
+              handleLogout={handleLogout}
+            />
 
-            <header className={`py-20 bg-gradient-airways`}>
-              <div className="lg:mx-auto max-w-7xl px-2">
-                <div className="grid lg:flex lg:flex-row items-start lg:items-center lg:justify-between gap-y-6 lg:gap-y-0 lg:space-x-4">
+            <header className={` py-10 lg:py-20 bg-gradient-airways`}>
+              <div className="lg:mx-auto max-w-7xl px-2 sm:px-8 xl:px-0">
+                <div className="grid lg:flex lg:flex-row items-start lg:items-center lg:justify-around gap-y-6 lg:gap-y-0 lg:space-x-4">
                   <AirlineDestination
                     setActiveField={setActiveField}
                     setShowSearch={setShowSearch}
@@ -132,7 +132,7 @@ export default function Airways() {
                     setFromLocation={setFromLocation}
                   />
 
-                  <div className="grid h-10 border-b-2 border-white/40 text-4xl md:text-3xl lg:text-2xl xl:text-4xl px-4 pb-12 items-center text-center justify-center">
+                  <div className="grid h-10 border-b-2 border-white/40 text-4xl lg:text-3xl xl:text-4xl px-4 pb-12 items-center text-center justify-center">
                     <Select defaultValue="Round Trip">
                       <SelectTrigger className="text-white">
                         <SelectValue placeholder="Select trip type" />
@@ -144,8 +144,9 @@ export default function Airways() {
                   </div>
 
                   <div
-                    className={`items-center text-xl font-audimat border-b-2 pb-2 border-white/40 ${showSearch ? "" : ""
-                      }`}
+                    className={`items-center text-xl font-audimat border-b-2 pb-2 border-white/40 ${
+                      showSearch ? "" : ""
+                    }`}
                   >
                     <FlightCalendar
                       date={date}
@@ -185,8 +186,9 @@ export default function Airways() {
 
             <section
               className={`relative flex flex-col sm:flex-row justify-center 
-              gap-x-0 gap-y-6 sm:gap-x-6 lg:gap-x-24 py-14 z-0 bg-white !font-sohne px-6 ${showSearch ? "blur-lg" : ""
-                }`}
+              gap-x-0 gap-y-6 sm:gap-x-6 lg:gap-x-24 py-14 z-0 bg-white !font-sohne px-6 ${
+                showSearch ? "blur-lg" : ""
+              }`}
             >
               <AirlineInfoCard
                 headerTitleText="Wheels up"

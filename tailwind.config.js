@@ -18,10 +18,10 @@ module.exports = {
     },
     extend: {
       width: {
-        '80': '80%', // Add this line
+        80: "80%", // Add this line
       },
       height: {
-        '80': '80%', // Add this line
+        80: "80%", // Add this line
       },
       screens: {
         "3xl": "2500px",
@@ -30,26 +30,16 @@ module.exports = {
         "screen-20": "calc(100vh - 5rem)", // 5rem is equivalent to 20 in Tailwind's spacing scale
       },
       backgroundImage: (theme) => ({
-        "gradient-radial":
-          "radial-gradient(ellipse at center, #00c0e7 0%, #a34fde 100%)",
-        "gradient-releases": "linear-gradient(245deg, #00c0e7, #a34fde)",
-        "gradient-blue":
-          "linear-gradient(225deg, #405BFF -5.3%, #3DD6F5 112.86%)",
-        "gradient-targeting":
-          "linear-gradient(222deg,#18bdde 1.56%,#405bff 96.51%)",
-        "gradient-experimentation":
-          "linear-gradient(222deg,#c0d600 -2.68%,#05b0d2 92.81%);",
+        "gradient-radial": "radial-gradient(ellipse at center, #00c0e7 0%, #a34fde 100%)",
+        "gradient-releases": "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
+
+        "gradient-blue": "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
+
+        "gradient-targeting": "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
         "gradient-mobile": "linear-gradient(65deg,#ff386b 3.6%,#ffaf38 98.81%)",
-        "market-header":
-          "linear-gradient(108.59deg, #212121 2.18%, #000000 75.85%)",
-        "gradient-airways":
-          "linear-gradient(131deg, #A34FDE -15.82%, #405BFF 118.85%)",
-        card1: "linear-gradient(210deg, #06F -22.78%, #3DD6F5 110.31%)",
-        card2: "linear-gradient(193.42deg, #A34FDE -4.63%, #3DD6F5 138.52%)",
-        card3: "linear-gradient(187.72deg, #FF386B -57.74%, #EBFF38 222.08%)",
-        card4bottom:
-          "linear-gradient(39.47deg, #A34FDE -17.19%, #FF386B 148.9%)",
-        bankblue: "linear-gradient(225deg, #3DD6F5 -5.3%, #405BFF 112.86%)",
+        "gradient-airways": "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
+        "gradient-airways-grey": "linear-gradient(200.65deg, #58595B -25.37%, #212121 75.5%)",
+        "gradient-airways-red": "linear-gradient(223.42deg, #FF386B -1.29%, #A34FDE 110.16%)",
       }),
       fontFamily: {
         sohne: ["Sohne"],
@@ -65,6 +55,7 @@ module.exports = {
       },
       colors: {
         border: "hsl(var(--border))",
+        bluegradient: "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
@@ -77,14 +68,9 @@ module.exports = {
         awsorange: "#FF9900",
         navgray: "#282828",
         airlinetext: "#D1D3D4",
-        airlinepurple: "#A34FDE",
-        airlinepink: "#FF386B",
         airlineinactive: "#939598",
-        banklightblue: "#3DD6F5",
-        bankdarkblue: "#405BFF",
-        marketblue: "#3DD6F5",
-        marketgreen: "#EBFF38",
-        airlinePurple: "#7084FF",
+        airlinedarkblue: "#405BFF",
+        airlinelightblue: "#3DD6F5",
         airlineBlack: "#2C2C2C",
         primary: {
           DEFAULT: "hsl(var(--primary))",

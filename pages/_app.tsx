@@ -1,5 +1,12 @@
 import "@/styles/globals.css";
-import { isAndroid, isIOS, isBrowser, isMobile, isMacOs, isWindows } from 'react-device-detect';
+import {
+  isAndroid,
+  isIOS,
+  isBrowser,
+  isMobile,
+  isMacOs,
+  isWindows,
+} from "react-device-detect";
 import type { AppProps } from "next/app";
 import NoSSRWrapper from "@/components/no-ssr";
 import { asyncWithLDProvider } from "launchdarkly-react-client-sdk";
@@ -11,14 +18,21 @@ import Head from "next/head";
 import { PersonaProvider } from "@/components/personacontext";
 import { QuickCommandDialog } from "@/components/quickcommand";
 
-
 let c;
 
 if (typeof window !== "undefined") {
   //const uniqueKey = uuidv4().slice(0, 4);
 
-  const operatingSystem = isAndroid ? 'Android' : isIOS ? 'iOS' : isWindows ? 'Windows' : isMacOs ? 'macOS' : '';
-  const device = isMobile ? 'Mobile' : isBrowser ? 'Desktop' : '';
+  const operatingSystem = isAndroid
+    ? "Android"
+    : isIOS
+    ? "iOS"
+    : isWindows
+    ? "Windows"
+    : isMacOs
+    ? "macOS"
+    : "";
+  const device = isMobile ? "Mobile" : isBrowser ? "Desktop" : "";
 
   const LDProvider = await asyncWithLDProvider({
     clientSideID: process.env.NEXT_PUBLIC_LD_CLIENT_KEY || "",
@@ -28,10 +42,7 @@ if (typeof window !== "undefined") {
     context: {
       kind: "multi",
       user: {
-        key: "jenn@launchmail.io",
-        name: "Jenn",
-        email: "jenn@launchmail.io",
-        appName: "LD Demo",
+        anonymous: true,
       },
       device: {
         key: device,
@@ -50,9 +61,6 @@ if (typeof window !== "undefined") {
         name: "a380",
         airplane: "a380",
       },
-      audience: {
-        key: uuidv4().slice(0, 6),
-      }
     },
   });
 
@@ -61,8 +69,7 @@ if (typeof window !== "undefined") {
       <NoSSRWrapper>
         <LDProvider>
           <PersonaProvider>
-            
-              <LoginProvider>
+            <LoginProvider>
               <QuickCommandDialog>
                 <TripsProvider>
                   <KeyboardNavigation />
@@ -75,8 +82,8 @@ if (typeof window !== "undefined") {
                   </Head>
                   <Component {...pageProps} />
                 </TripsProvider>
-                </QuickCommandDialog>
-              </LoginProvider>
+              </QuickCommandDialog>
+            </LoginProvider>
           </PersonaProvider>
         </LDProvider>
       </NoSSRWrapper>
