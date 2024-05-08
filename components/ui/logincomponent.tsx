@@ -90,7 +90,7 @@ export function LoginComponent({
           width={64}
           className="pt-10 mx-auto pb-4"
         />
-        <p className="text-3xl sm:text-4xl font-sohnelight pb-12 3xl:pb-24 !font-thin">
+        <p className="text-3xl sm:text-4xl font-sohnelight pb-8 pt-4 3xl:pb-14 !font-thin">
           <span className="!font-extrabold">{name}</span>
         </p>
       </div>
@@ -100,28 +100,20 @@ export function LoginComponent({
             placeholder="Email"
             value={defaultEmail || "jenn@launchmail.io"}
             ref={inputRef}
-            className="mb-8 3xl:mb-24 outline-none border-0 border-b-2 text-xl"
+            className="mb-8 outline-none border-0 border-b-2 text-xl"
             onChange={(e) => setDefaultEmail(e.target.value)}
           />
         </div>
 
         <Button
           onClick={handleLogin}
-          className={`mb-4 w-full h-full mx-auto font-audimat rounded-none  text-xl bg-gradient-to-r from-airlinepurple to-airlinepink text-white`}
-        >
+          className={`mb-4 w-full h-full mx-auto font-sohne rounded-none hover:bg-gradient-airways-grey text-xl bg-gradient-airways text-white`}>
           Login with SSO
         </Button>
 
-        <Dialog
-          onDismiss={() => {
-            setIsAddUserDropdownOpen(false);
-          }}
-          className="z-10"
-        >
-          <DialogTrigger
-            className={`mb-4 p-2 w-full h-full mx-auto font-audimat rounded-none text-xl bg-gradient-to-r from-airlinepurple to-airlinepink text-white hover:bg-gray-800`}
-          >
-            Switch SSO User
+        <Dialog onDismiss={() => { setIsAddUserDropdownOpen(false) }} className="z-10">
+          <DialogTrigger className={`mb-4 p-2 w-full h-full mx-auto font-sohne rounded-none text-xl  text-black  hover:bg-gradient-airways-grey hover:text-white  border-2`} style={{ borderImage: 'linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)', borderImageSlice: '1' }}>           
+           Switch SSO User
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">
             <DialogHeader>
@@ -166,18 +158,9 @@ export function LoginComponent({
           </DialogContent>
         </Dialog>
       </div>
-      <div className="grid  sm:flex-row  justify-between px-8 pb-8">
-        <div className="pb-3">
-          <p>Forgot Password?</p>
-        </div>
-        <div>
-          <p>
-            Don't have an account?{" "}
-            <a href={window.location.href} className="text-blue-600 ml-2">
-              Sign Up
-            </a>
-          </p>
-        </div>
+      <div className="flex justify-between px-8 pb-8">
+        <p className="pb-3 font-shone text-[#405BFF]">Forgot Password?</p>
+        <p>Don't have an account? <a href={window.location.href} className="text-[#405BFF] font-shone">Sign Up</a></p>
       </div>
     </div>
   );

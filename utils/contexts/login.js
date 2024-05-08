@@ -13,7 +13,7 @@ export const LoginProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [email, setEmail] = useState({});
   const [enrolledInLaunchClub, setEnrolledInLaunchClub] = useState(false);
-  const [launchClubStatus, setLaunchClubStatus] = useState("economy");
+  const [launchClubStatus, setLaunchClubStatus] = useState("standard");
 
   const loginUser = async (loggedInUser) => {
     setIsLoggedIn(true);
@@ -48,7 +48,7 @@ export const LoginProvider = ({ children }) => {
 
   const setPlaneContext = async (plane) => {
     const context = await client?.getContext();
-    console.log("setPlaneContext", context);
+    console.log("setPlaneContext",context)
     context.experience.airplane = plane;
     console.log("Plane context registered for trip as - " + plane);
     client.identify(context);
