@@ -49,7 +49,7 @@ const LaunchClubStatus = () => {
                 <div className="my-2">
                   <Button
                     onClick={() => upgradeLaunchClub("platinum")}
-                    className="flex text-xl font-sohnelight rounded-none bg-airlinegradient w-full h-full hover:bg-airlinegradient2 hover:text-white"
+                    className="flex text-xl font-sohnelight rounded-none w-full h-full bg-gradient-airways hover:bg-gradient-airways-grey hover:text-white"
                   >
                     Unlock Platinum Status
                   </Button>
@@ -79,7 +79,7 @@ const LaunchClubStatus = () => {
                   </div>
                   <div className="flex justify-between">
                     <p>Free Checked Baggage</p>
-                    <p className="bg-clip-text text-transparent bg-airlinegradient">Unlocked</p>
+                    <p className="bg-clip-text text-transparent bg-gradient-airways">Unlocked</p>
                   </div>
                   <div className="flex justify-between">
                     <p>Free First Class Upgrades</p>
@@ -94,19 +94,19 @@ const LaunchClubStatus = () => {
                 <div className="pt-2">
                   <div className="flex justify-between">
                     <p>AI Travel Insights</p>
-                    <p className="bg-clip-text text-transparent bg-airlinegradient">Unlocked</p>
+                    <p className="bg-clip-text text-transparent bg-gradient-airways">Unlocked</p>
                   </div>
                   <div className="flex justify-between">
                     <p>Free Checked Baggage</p>
-                    <p className="bg-clip-text text-transparent bg-airlinegradient">Unlocked</p>
+                    <p className="bg-clip-text text-transparent bg-gradient-airways">Unlocked</p>
                   </div>
                   <div className="flex justify-between">
                     <p>Free First Class Upgrades</p>
-                    <p className="bg-clip-text text-transparent bg-airlinegradient">Unlocked</p>
+                    <p className="bg-clip-text text-transparent bg-gradient-airways">Unlocked</p>
                   </div>
                   <div className="flex justify-between">
                     <p>Priority Boarding</p>
-                    <p className="bg-clip-text text-transparent bg-airlinegradient">Unlocked</p>
+                    <p className="bg-clip-text text-transparent bg-gradient-airways">Unlocked</p>
                   </div>
                 </div>
               )}

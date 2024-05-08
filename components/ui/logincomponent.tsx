@@ -107,12 +107,12 @@ export function LoginComponent({
 
         <Button
           onClick={handleLogin}
-          className={`mb-4 w-full h-full mx-auto font-sohne rounded-none hover:bg-airlinegradient2 text-xl bg-airlinegradient text-white`}>
+          className={`mb-4 w-full h-full mx-auto font-sohne rounded-none hover:bg-gradient-airways-grey text-xl bg-gradient-airways text-white`}>
           Login with SSO
         </Button>
 
         <Dialog onDismiss={() => { setIsAddUserDropdownOpen(false) }} className="z-10">
-          <DialogTrigger className={`mb-4 p-2 w-full h-full mx-auto font-sohne rounded-none text-xl  text-black  hover:bg-airlinegradient2 hover:text-white  border-2`} style={{ borderImage: 'linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)', borderImageSlice: '1' }}>           
+          <DialogTrigger className={`mb-4 p-2 w-full h-full mx-auto font-sohne rounded-none text-xl  text-black  hover:bg-gradient-airways-grey hover:text-white  border-2`} style={{ borderImage: 'linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)', borderImageSlice: '1' }}>           
            Switch SSO User
           </DialogTrigger>
           <DialogContent className="sm:max-w-[425px]">

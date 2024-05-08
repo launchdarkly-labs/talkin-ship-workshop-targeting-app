@@ -32,7 +32,7 @@ export function QuickLoginDialog({ personas }: QuickLoginDialogProps) {
       role: persona.personatype,
     };
     loginUser(loggedInUser);
-    setIsDialogOpen(false);
+    setIsDialogOpen(true);
   };
 
   return (
@@ -40,7 +40,7 @@ export function QuickLoginDialog({ personas }: QuickLoginDialogProps) {
       {isDialogOpen ? (
         <Dialog>
           <DialogTrigger
-            className={`w-full h-full p-1  font-shone rounded-none airlinesbordergradient text-xl border-4 text-black mt-4 hover:bg-airlinegradient2 hover:text-white hover:border-none`}
+            className={`w-full h-full p-1  font-shone rounded-none text-xl border-4 bg-gradient-airways border-grey text-black mt-4 hover:bg-gradient-airways-grey hover:text-white`}
           >
             Quick Login
           </DialogTrigger>
