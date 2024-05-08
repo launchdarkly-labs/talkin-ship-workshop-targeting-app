@@ -18,10 +18,10 @@ module.exports = {
     },
     extend: {
       width: {
-        '80': '80%', // Add this line
+        80: "80%", // Add this line
       },
       height: {
-        '80': '80%', // Add this line
+        80: "80%", // Add this line
       },
       screens: {
         "3xl": "2500px",
@@ -30,26 +30,16 @@ module.exports = {
         "screen-20": "calc(100vh - 5rem)", // 5rem is equivalent to 20 in Tailwind's spacing scale
       },
       backgroundImage: (theme) => ({
-        "gradient-radial":
-          "radial-gradient(ellipse at center, #00c0e7 0%, #a34fde 100%)",
-        "gradient-releases":          
-        "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
+        "gradient-radial": "radial-gradient(ellipse at center, #00c0e7 0%, #a34fde 100%)",
+        "gradient-releases": "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
 
-        "gradient-blue":
-        "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
+        "gradient-blue": "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
 
-        "gradient-targeting":
-          "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
+        "gradient-targeting": "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
         "gradient-mobile": "linear-gradient(65deg,#ff386b 3.6%,#ffaf38 98.81%)",
-        "gradient-airways":
-          "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
-        "airlinegradient": "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
-        "airlinegradient2":"linear-gradient(200.65deg, #58595B -25.37%, #212121 75.5%)",
-        "airlinegradient3":"linear-gradient(223.42deg, #FF386B -1.29%, #A34FDE 110.16%)",
-        card4bottom:
-        "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
-
-        
+        "gradient-airways": "linear-gradient(224.68deg, #405BFF -5.3%, #3DD6F5 112.86%)",
+        "gradient-airways-grey": "linear-gradient(200.65deg, #58595B -25.37%, #212121 75.5%)",
+        "gradient-airways-red": "linear-gradient(223.42deg, #FF386B -1.29%, #A34FDE 110.16%)",
       }),
       fontFamily: {
         sohne: ["Sohne"],

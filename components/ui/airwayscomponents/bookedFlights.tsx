@@ -135,7 +135,7 @@ export default function BookedFlights() {
           <div className="block sm:hidden lg:block cursor-pointer sm:text-airlineinactive sm:focus:text-airlinetext  sm:hover:text-white ">
             <span className="">My Bookings</span>
             {bookedTrips.length > 0 && (
-              <span className="absolute ml-2 lg:ml-0 lg:bottom-[35px] lg:right-[-25px] bg-airlinegradient rounded-full text-white text-xs w-5 h-5 pt-[.12rem] pr-[0.05rem] ">
+              <span className="absolute ml-2 lg:ml-0 lg:bottom-[35px] lg:right-[-25px] bg-gradient-airways rounded-full text-white text-xs w-5 h-5 pt-[.12rem] pr-[0.05rem] ">
                 {bookedTrips.length}
               </span>
             )}
@@ -267,7 +267,7 @@ export default function BookedFlights() {
                                   </div>
                                 ) : (
                                   <div>
-                                    <p className="text-lg mb-4 font-sohne  bg-airlinegradient3 text-white p-4">
+                                    <p className="text-lg mb-4 font-sohne  bg-gradient-airways-red text-white p-4">
                                       AI Travel Insights{" "}
                                       <span className="text-sm">powered by Amazon Bedrock</span>{" "}
                                     </p>
@@ -309,7 +309,7 @@ export default function BookedFlights() {
                   <div className="p-6 xl:p-6 w-full sm:w-1/3 bg-[#F8F8F8] grid ticket-content-right-side ">
                     <div className="flex flex-col items-center justify-center space-y-4">
                       {enrolledInLaunchClub && priorityBoarding ? (
-                        <button className="bg-airlinegradient text-white font-bold py-2 px-4 w-full cursor-default">
+                        <button className="bg-gradient-airways text-white font-bold py-2 px-4 w-full cursor-default">
                           Launch Priority Upgrade
                         </button>
                       ) : (
@@ -320,14 +320,14 @@ export default function BookedFlights() {
                       <CheckIn trip={trip} />
                       {aiTravelInsights && (
                         <Popover>
-                          <PopoverTrigger className="relative bg-airlinegradient3 text-white font-bold py-3 px-4 bg-gradient-airline-buttons w-full   animate-pulse hover:animate-none">
+                          <PopoverTrigger className="relative bg-gradient-airways-red text-white font-bold py-3 px-4 bg-gradient-airline-buttons w-full   animate-pulse hover:animate-none">
                             AI Travel Insights
                           </PopoverTrigger>
                           <PopoverContent
                             onCloseAutoFocus={() => setAIResponse("")}
                             className="w-full sm:w-[400px] h-[300px] sm:h-[400px] mt-2 sm:absolute sm:right-[0%]"
                           >
-                            <div className="flex justify-center items-center bg-airlinegradient3 text-white sm:justify-normal">
+                            <div className="flex justify-center items-center bg-gradient-airways-red text-white sm:justify-normal">
                               <p className="text-lg mb-4 mt-4 font-sohne ml-4 mr-4">
                                 AI Travel Insights{" "}
                                 <span className="text-sm">powered by Amazon Bedrock</span>

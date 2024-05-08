@@ -14,7 +14,7 @@ const AirlineHero = ({
   const { isLoggedIn, enrolledInLaunchClub } = useContext(LoginContext);
 
   return (
-    <section className={`airline-hero-image  ${showSearch ? "blur-lg" : ""}`}>
+    <section className={`airline-hero-image text-white  ${showSearch ? "blur-lg" : ""}`}>
       <div className="flex flex-col">
         <div className={`relative`}>
           <div aria-hidden="true" className="absolute hidden h-full w-1/2 lg:block" />
@@ -60,19 +60,19 @@ const AirlineHero = ({
                   </div>
                   <div className="h-full flex self-center">
                     <LaunchSignUp />
-                  </div>
-                </motion.div>
-              )}
+                  </motion.div>
+                )}
+              </div>
             </div>
           </div>
-          <div className="w-full h-full absolute top-0 lg:h-full lg:w-full]">
+
+          <div className={`w-full h-full absolute top-0 lg:h-full lg:w-full`}>
             <img
               src={"dudeguy.png"}
               alt={"imageType"}
-              className="h-full w-full object-cover object-center "
+              className="h-full w-full object-cover object-center"
               aria-label={`hero image`}
             />
-            <div className="absolute inset-0 bg-gradient-to-l from-[#21212100] to-[#212121ff]"></div>
           </div>
         </div>
       </div>
