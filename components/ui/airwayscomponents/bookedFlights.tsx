@@ -10,7 +10,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import TripsContext from "@/utils/contexts/TripContext";
 import LoginContext from "@/utils/contexts/login";
-import { ArrowRight, PersonStanding, Star, PlaneIcon, Wifi, Plane } from "lucide-react";
+import { ArrowRight, Star, Wifi, Plane } from "lucide-react";
 import { useFlags } from "launchdarkly-react-client-sdk";
 import CheckIn from "./checkin";
 import {
@@ -23,8 +23,7 @@ import { BounceLoader } from "react-spinners";
 export default function BookedFlights() {
   const { bookedTrips, setBookedTrips, cancelTrip } = useContext(TripsContext);
   const { enrolledInLaunchClub } = useContext(LoginContext);
-  const { launchClubLoyalty, priorityBoarding, aiTravelInsights, mealPromoExperience } = useFlags();
-  const [status, setStatus] = useState("Economy");
+  const { launchClubLoyalty, priorityBoarding, aiTravelInsights } = useFlags();
   const [aiResponse, setAIResponse] = useState("");
   const [toAirport, setToAirport] = useState("");
   const [loading, setLoading] = useState(false);
@@ -40,7 +39,9 @@ export default function BookedFlights() {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}. Check API Server Logs.`);
+        throw new Error(
+          `HTTP error! status: ${response.status}. Check API Server Logs.`
+        );
       }
 
       const data = await response.json();
@@ -64,7 +65,9 @@ export default function BookedFlights() {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}. Check API Server Logs.`);
+        throw new Error(
+          `HTTP error! status: ${response.status}. Check API Server Logs.`
+        );
       }
 
       const data = await response.json();
@@ -89,7 +92,9 @@ export default function BookedFlights() {
       });
 
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}. Check API Server Logs.`);
+        throw new Error(
+          `HTTP error! status: ${response.status}. Check API Server Logs.`
+        );
       }
 
       const data = await response.json();
@@ -105,7 +110,9 @@ export default function BookedFlights() {
 
   const handleCancel = async (index: any) => {
     cancelTrip(index);
-    await setBookedTrips(bookedTrips.filter((_: any, tripIndex: number) => tripIndex !== index));
+    await setBookedTrips(
+      bookedTrips.filter((_: any, tripIndex: number) => tripIndex !== index)
+    );
   };
 
   const containerVariants = {
@@ -194,11 +201,9 @@ export default function BookedFlights() {
                   exit="exit" // Add this line
                 >
                   <div className="ticket-content-left-side py-4 px-6 relative w-full sm:w-2/3 font-sohne">
-
                     <div className="ticket-main-wrapper flex flex-col gap-y-4 my-4 ">
                       <div className="ticket-main-informationflex flex-col gap-y-[.1rem]">
                         <div className="flex justify-between items-center">
-
                           <p className="ticket-type-flight  tracking-wide text-md bg-clip-text bg-gradient-airline font-semibold">
                             {trip.type} flight
                           </p>
@@ -207,15 +212,33 @@ export default function BookedFlights() {
                             <Popover>
                               <PopoverTrigger asChild>
                                 <p
-                                  onClick={() => travelLocationsInfo(trip.toCity, trip.fromCity)}
+                                  onClick={() =>
+                                    travelLocationsInfo(
+                                      trip.toCity,
+                                      trip.fromCity
+                                    )
+                                  }
                                   className=" uppercase flex font-bold animate-pulse hover:animate-none text-airlinepink gap-x-1 hover:underline cursor-pointer"
                                 >
-                                  <span className="text-air" style={{ color: "#405BFF" }}>{trip.fromCity}</span> <ArrowRight />
-                                  <span className="text-end" style={{ color: "#405BFF" }}>{trip.toCity}</span>
+                                  <span
+                                    className="text-air"
+                                    style={{ color: "#405BFF" }}
+                                  >
+                                    {trip.fromCity}
+                                  </span>{" "}
+                                  <ArrowRight />
+                                  <span
+                                    className="text-end"
+                                    style={{ color: "#405BFF" }}
+                                  >
+                                    {trip.toCity}
+                                  </span>
                                 </p>
                               </PopoverTrigger>
 
-                              <PopoverContent onCloseAutoFocus={() => setAIResponse("")}>
+                              <PopoverContent
+                                onCloseAutoFocus={() => setAIResponse("")}
+                              >
                                 {loading ? (
                                   <div className="flex justify-center">
                                     <BounceLoader color="#FF386B" />
@@ -224,7 +247,9 @@ export default function BookedFlights() {
                                   <div>
                                     <p className="text-lg mb-4 font-sohne">
                                       AI Travel Insights{" "}
-                                      <span className="text-sm">powered by AWS Bedrock</span>{" "}
+                                      <span className="text-sm">
+                                        powered by AWS Bedrock
+                                      </span>{" "}
                                     </p>
                                     <p>{aiResponse}</p>
                                   </div>
@@ -233,7 +258,13 @@ export default function BookedFlights() {
                             </Popover>
                           ) : (
                             <p className="text-lg flex font-bold text-[#405BFF] ">
-                              {trip.fromCity} <ArrowRight color="black" width={20} className="ml-2 mr-2" /> {trip.toCity}
+                              {trip.fromCity}{" "}
+                              <ArrowRight
+                                color="black"
+                                width={20}
+                                className="ml-2 mr-2"
+                              />{" "}
+                              {trip.toCity}
                             </p>
                           )}
                         </div>
@@ -248,7 +279,6 @@ export default function BookedFlights() {
                         <div className="flex justify-between mt-2">
                           <p className="text-black">Aircraft</p>
 
-
                           {aiTravelInsights ? (
                             <Popover>
                               <PopoverTrigger asChild>
@@ -259,8 +289,10 @@ export default function BookedFlights() {
                                   {trip.airplane}
                                 </p>
                               </PopoverTrigger>
-                              <PopoverContent onCloseAutoFocus={() => setAIResponse("")} className="pt-0 pr-0 pl-0 flex items-center max-h-screen mx-auto my-auto">
-
+                              <PopoverContent
+                                onCloseAutoFocus={() => setAIResponse("")}
+                                className="pt-0 pr-0 pl-0 flex items-center max-h-screen mx-auto my-auto"
+                              >
                                 {loading ? (
                                   <div className="flex justify-center mx-auto my-auto pt-2 pb-0">
                                     <BounceLoader color="#FF386B" />
@@ -269,9 +301,13 @@ export default function BookedFlights() {
                                   <div>
                                     <p className="text-lg mb-4 font-sohne  bg-gradient-airways-red text-white p-4">
                                       AI Travel Insights{" "}
-                                      <span className="text-sm">powered by Amazon Bedrock</span>{" "}
+                                      <span className="text-sm">
+                                        powered by Amazon Bedrock
+                                      </span>{" "}
                                     </p>
-                                    <p className="p-4 font-normal font-sohne">{aiResponse}</p>
+                                    <p className="p-4 font-normal font-sohne">
+                                      {aiResponse}
+                                    </p>
                                   </div>
                                 )}
                               </PopoverContent>
@@ -282,8 +318,12 @@ export default function BookedFlights() {
                         </div>
 
                         <div className="flex justify-between mt-2">
-                          <p className="text-black font-shone text-l">Ticket Number</p>
-                          <p className=" text-black font-shone text-l">{trip.id}</p>
+                          <p className="text-black font-shone text-l">
+                            Ticket Number
+                          </p>
+                          <p className=" text-black font-shone text-l">
+                            {trip.id}
+                          </p>
                         </div>
                       </div>
                       <div className="border-2 mt-2 border-[#E6E6E6]" />
@@ -330,7 +370,9 @@ export default function BookedFlights() {
                             <div className="flex justify-center items-center bg-gradient-airways-red text-white sm:justify-normal">
                               <p className="text-lg mb-4 mt-4 font-sohne ml-4 mr-4">
                                 AI Travel Insights{" "}
-                                <span className="text-sm">powered by Amazon Bedrock</span>
+                                <span className="text-sm">
+                                  powered by Amazon Bedrock
+                                </span>
                               </p>
                             </div>
                             <div className=" overflow-y-auto flex justify-center items-center ">
@@ -349,7 +391,8 @@ export default function BookedFlights() {
                                 onClick={() => submitQuery(trip.to)}
                                 className="bg-transparent  text-blue-700 hover:bg-transparent hover:text-black mx-auto "
                               >
-                                Generate <ArrowRight className="text-blue-700" />
+                                Generate{" "}
+                                <ArrowRight className="text-blue-700" />
                               </Button>
                             ) : null}
                           </PopoverContent>
@@ -375,4 +418,3 @@ export default function BookedFlights() {
     </Sheet>
   );
 }
-
