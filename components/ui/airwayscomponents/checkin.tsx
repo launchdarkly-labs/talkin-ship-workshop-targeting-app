@@ -15,20 +15,14 @@ import LoginContext from "@/utils/contexts/login";
 import { useFlags, useLDClient } from "launchdarkly-react-client-sdk";
 
 export default function CheckIn({ trip }: any) {
-  const { launchClubLoyalty, priorityBoarding, mealPromoExperience } =
-    useFlags();
+  const { launchClubLoyalty, priorityBoarding } = useFlags();
   const { enrolledInLaunchClub } = useContext(LoginContext);
   const client = useLDClient();
 
   const handleCheckIn = async () => {
     const context = await client?.getContext();
 
-    context.experience = {
-      key: trip.id,
-      airplane: trip.airplane,
-      flightNumber: trip.flightNumber,
-    };
-    client.identify(context);
+    // Add the experience context here
   };
   return (
     <AlertDialog>
@@ -58,11 +52,6 @@ export default function CheckIn({ trip }: any) {
                     <Wifi className="text-green-700 mr-2" /> Free WiFi
                   </p>
                 </>
-              )}
-              {mealPromoExperience && (
-                <p className="flex text-black  py-2 font-sohne bg-clip-text text-transparent bg-gradient-to-r from-green-400 to-yellow-600  ">
-                  <PlaneIcon className="text-green-700 mr-2" /> A330 Meal Promo
-                </p>
               )}
             </div>
           </AlertDialogDescription>

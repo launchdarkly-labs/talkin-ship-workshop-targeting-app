@@ -25,14 +25,7 @@ export const LoginProvider = ({ children }) => {
     console.log("loginUser", context);
 
     // set the user context
-    context.user = {
-      name: loggedInUser.name,
-      email: loggedInUser.email,
-      role: loggedInUser.role,
-      key: loggedInUser.email,
-      launchclub: launchClubStatus,
-    };
-    await client.identify(context);
+    // pass the context to LaunchDarkly via the identify method
   };
 
   const logoutUser = async () => {
@@ -48,7 +41,7 @@ export const LoginProvider = ({ children }) => {
 
   const setPlaneContext = async (plane) => {
     const context = await client?.getContext();
-    console.log("setPlaneContext",context)
+    console.log("setPlaneContext", context);
     context.experience.airplane = plane;
     console.log("Plane context registered for trip as - " + plane);
     client.identify(context);

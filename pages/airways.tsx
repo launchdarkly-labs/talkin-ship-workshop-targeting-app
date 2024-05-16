@@ -27,7 +27,7 @@ import {
 import { SelectTrigger } from "@radix-ui/react-select";
 
 export default function Airways() {
-  const { launchClubLoyalty } = useFlags();
+  // add the useFlags hook here
 
   const { toast } = useToast();
   const [fromLocation, setFromLocation] = useState("From");
@@ -100,7 +100,7 @@ export default function Airways() {
 
   return (
     <>
-    <Toaster />
+      <Toaster />
       <AnimatePresence mode="wait">
         {!isLoggedIn ? (
           <LoginHomePage name="Launch Airways" />
@@ -111,10 +111,7 @@ export default function Airways() {
             transition={{ duration: 0.5 }}
             className={`flex h-screen text-white flex-col font-audimat`}
           >
-            <NavBar
-              launchClubLoyalty={launchClubLoyalty}
-              handleLogout={handleLogout}
-            />
+            <NavBar handleLogout={handleLogout} />
 
             <header className={` py-10 lg:py-20 bg-gradient-airways`}>
               <div className="lg:mx-auto max-w-7xl px-2 sm:px-8 xl:px-0">
@@ -179,10 +176,7 @@ export default function Airways() {
               </div>
             </header>
 
-            <AirlineHero
-              launchClubLoyalty={launchClubLoyalty}
-              showSearch={showSearch}
-            />
+            <AirlineHero showSearch={showSearch} />
 
             <section
               className={`relative flex flex-col sm:flex-row justify-center 
