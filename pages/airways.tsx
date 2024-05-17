@@ -111,8 +111,9 @@ export default function Airways() {
             transition={{ duration: 0.5 }}
             className={`flex h-screen text-white flex-col font-audimat`}
           >
+            {/* Retrieve the code from the Getting Started section of Talkin' Ship */}
             <NavBar handleLogout={handleLogout} />
-
+            {/* Replace the code between these comment blocks */}
             <header className={` py-10 lg:py-20 bg-gradient-airways`}>
               <div className="lg:mx-auto max-w-7xl px-2 sm:px-8 xl:px-0">
                 <div className="grid lg:flex lg:flex-row items-start lg:items-center lg:justify-around gap-y-6 lg:gap-y-0 lg:space-x-4">
@@ -175,9 +176,9 @@ export default function Airways() {
                 </div>
               </div>
             </header>
-
+            {/* Retrieve code from Getting Started section of Talkin' Ship */}
             <AirlineHero showSearch={showSearch} />
-
+            {/* Replace the code between these two comment blocks */}
             <section
               className={`relative flex flex-col sm:flex-row justify-center 
               gap-x-0 gap-y-6 sm:gap-x-6 lg:gap-x-24 py-14 z-0 bg-white !font-sohne px-6 ${

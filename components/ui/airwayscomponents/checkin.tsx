@@ -15,14 +15,16 @@ import LoginContext from "@/utils/contexts/login";
 import { useFlags, useLDClient } from "launchdarkly-react-client-sdk";
 
 export default function CheckIn({ trip }: any) {
+  // Make sure you get the correct flag keys from Advanced Targeting in Talkin Ship
   const { launchClubLoyalty, priorityBoarding } = useFlags();
+  // The add the correct flag key to the array above 
   const { enrolledInLaunchClub } = useContext(LoginContext);
   const client = useLDClient();
 
   const handleCheckIn = async () => {
     const context = await client?.getContext();
 
-    // Add the experience context here
+    // Add the experience context here from Advanced Targeting in Talkin Ship
   };
   return (
     <AlertDialog>
@@ -53,6 +55,7 @@ export default function CheckIn({ trip }: any) {
                   </p>
                 </>
               )}
+              {/* Add the code from Advanced Targeting in Talkin Ship that includes mealPromoExperience */}
             </div>
           </AlertDialogDescription>
         </AlertDialogHeader>

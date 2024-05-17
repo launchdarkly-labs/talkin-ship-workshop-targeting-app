@@ -24,8 +24,9 @@ export const LoginProvider = ({ children }) => {
     const context = await client?.getContext();
     console.log("loginUser", context);
 
-    // set the user context
-    // pass the context to LaunchDarkly via the identify method
+    // Step 1: set the user context with the code from Understanding Contexts, starts with context.user
+
+    // Step 2: pass the context to LaunchDarkly via the identify method listed in the Understanding Contexts section of Talkin Ship
   };
 
   const logoutUser = async () => {

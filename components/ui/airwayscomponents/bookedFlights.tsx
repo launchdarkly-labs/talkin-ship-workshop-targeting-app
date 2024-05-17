@@ -30,7 +30,9 @@ import { BounceLoader } from "react-spinners";
 export default function BookedFlights() {
   const { bookedTrips, setBookedTrips, cancelTrip } = useContext(TripsContext);
   const { enrolledInLaunchClub } = useContext(LoginContext);
+  // Make sure you've updated the flag keys
   const { launchClubLoyalty } = useFlags();
+  // Flag keys go in this array to be found by the useFlags() function
   const [status, setStatus] = useState("Economy");
   const [aiResponse, setAIResponse] = useState("");
   const [toAirport, setToAirport] = useState("");
@@ -215,7 +217,7 @@ export default function BookedFlights() {
                           <p className="ticket-type-flight  tracking-wide text-md bg-clip-text bg-gradient-airline font-semibold">
                             {trip.type} flight
                           </p>
-
+                          {/* Change false with the flag key you created from Managing Rollouts in Talkin Ship */}
                           {false ? (
                             <Popover>
                               <PopoverTrigger asChild>
@@ -286,7 +288,7 @@ export default function BookedFlights() {
 
                         <div className="flex justify-between mt-2">
                           <p className="text-black">Aircraft</p>
-
+                          {/* Change false with the flag key you created from Managing Rollouts in Talkin Ship */}
                           {false ? (
                             <Popover>
                               <PopoverTrigger asChild>
@@ -338,6 +340,7 @@ export default function BookedFlights() {
                       <div className="ticket-benefits-list flex justify-between align-center gap-x-1">
                         {enrolledInLaunchClub && launchClubLoyalty && (
                           <>
+                            {/* Add code from Working With Segments section of Talkin Ship, should start with priorityBoarding */}
                             <p className="flex text-black bg-clip-text text-transparent bg-black ">
                               <Wifi className=" mr-2" color="blue" /> Free WiFi
                             </p>
@@ -349,9 +352,11 @@ export default function BookedFlights() {
 
                   <div className="p-6 xl:p-6 w-full sm:w-1/3 bg-[#F8F8F8] grid ticket-content-right-side ">
                     <div className="flex flex-col items-center justify-center space-y-4">
+                      {/* Replace the button code here with the code in Working with Segments in Talkin Ship */}
                       <button className="bg-[#405BFF] text-white  p-4 w-full py-3 font-shone cursor-default">
                         Upgrade
                       </button>
+                      {/* Replace all the code between these two code blocks */}
                       <CheckIn trip={trip} />
                       {false && (
                         <Popover>
